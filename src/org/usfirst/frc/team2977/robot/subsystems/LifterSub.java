@@ -13,7 +13,7 @@ public class LifterSub extends Subsystem {
     
 	public Jaguar hooker = new Jaguar(5);
 	double hookspeed = hooker.get();
-	
+	double noonecares;
 	public void Hook() {
 		hooker.set(1);
 	}
