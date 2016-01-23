@@ -2,7 +2,10 @@ package org.usfirst.frc.team2977.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
 import org.usfirst.frc.team2977.robot.commands.ExampleCommand;
+import org.usfirst.frc.team2977.robot.commands.HookerCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -10,7 +13,13 @@ import org.usfirst.frc.team2977.robot.commands.ExampleCommand;
  */
 public class OI {
 	
-	Joystick stick = new Joystick(0);
+	Joystick stick = new Joystick(1);
+	Button A = new JoystickButton(stick, 1);
+	Button B = new JoystickButton(stick, 2);
+	
+	public OI() {
+		A.whileHeld(new HookerCommand());
+			
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
@@ -38,4 +47,4 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 }
-
+}
