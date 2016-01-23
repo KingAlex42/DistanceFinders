@@ -26,9 +26,7 @@ public class LifterSub extends Subsystem {
 		hooker.set(0); 
 	}
 	
-	public void advancedLifter() {
-		
-	}
+
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
