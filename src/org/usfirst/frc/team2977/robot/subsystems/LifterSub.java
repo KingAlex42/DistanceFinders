@@ -11,21 +11,25 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class LifterSub extends Subsystem {
     
-	public Jaguar hooker = new Jaguar(5);
-	double hookspeed = hooker.get();
-	double noonecares;
-	public void Hook() {
-		hooker.set(1);
+	public Jaguar lifter = new Jaguar(5);
+	double lifterspeed = lifter.get();
+	
+	public void Lift() {
+		lifter.set(1);
 	}
 	
-	public void deHook() {
-		hooker.set(-1);  
+	public void deLift() {
+		lifter.set(-1);  
 	}
 	
-	public void stopHooking() {
-		hooker.set(0); 
+	public void stopLifting() {
+		lifter.set(0); 
 	}
 	
+	public void advancedLift() {
+		
+	}
+
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -35,4 +39,5 @@ public class LifterSub extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
 }
+
 
