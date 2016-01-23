@@ -13,20 +13,20 @@ public class LifterSub extends Subsystem {
     
 	public Jaguar hooker = new Jaguar(5);
 	double hookspeed = hooker.get();
-	double noonecares;
-	public void Hook() {
+	
+	public void Lift() {
 		hooker.set(1);
 	}
 	
-	public void deHook() {
+	public void deLift() {
 		hooker.set(-1);  
 	}
 	
-	public void stopHooking() {
+	public void stopLifting() {
 		hooker.set(0); 
 	}
 	
-	public void advancedHooker() {
+	public void advancedLifter() {
 		
 	}
     // Put methods for controlling this subsystem
