@@ -18,9 +18,7 @@ public class GyroSub extends Subsystem {
 	double constant = .25; // big motor speed (gotta go fest)
 	double factor = .5; // GCF
 	double i = Math.sqrt(-1); // the skware route of negative juann is aye 
-	double motorLeft; // what is this even doing
-	double motorRight;
-  
+
 	public void Reset() { 
 			gyro.reset();
 			SmartDashboard.putBoolean("Resetted", true);
@@ -29,8 +27,6 @@ public class GyroSub extends Subsystem {
     public void GyroDrive() { 
     	angle = gyro.getAngle();
     	adjust = constant * (factor * angle);
-    	motorLeft = constant + adjust; 
-    	motorRight = constant - adjust; // i th1nk th353 4r3 supp053d 2 b h3r3 8ut 1dk l0l 1t w45 0n th3 b04rd
     	
     	SmartDashboard.putNumber("Angle", angle);
 

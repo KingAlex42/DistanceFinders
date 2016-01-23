@@ -26,9 +26,9 @@ public class LifterSub extends Subsystem {
 		lifter.set(0); 
 	}
 	
-	public void advancedLift() {
+	//public void advancedLift() {
 		
-	}
+	//}
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
