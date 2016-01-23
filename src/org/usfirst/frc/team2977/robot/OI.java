@@ -16,6 +16,13 @@ public class OI {
 	Button A = new JoystickButton(stick, 1);
 	Button B = new JoystickButton(stick, 2);
 	
+	public double getX() {
+		return stick.getX();	
+	}
+	
+	public double getY() {
+		return stick.getY();	
+	}
 	public OI() {
 		A.whileHeld(new LifterForward());
 	}
