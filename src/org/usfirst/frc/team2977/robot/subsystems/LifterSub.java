@@ -1,7 +1,7 @@
 
 package org.usfirst.frc.team2977.robot.subsystems;
 
-import org.usfirst.frc.team2977.robot.commands.StopHooking;
+import org.usfirst.frc.team2977.robot.commands.StopLifting;
 
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class HookerSub extends Subsystem {
+public class LifterSub extends Subsystem {
     
 	public Jaguar hooker = new Jaguar(5);
 	double hookspeed = hooker.get();
@@ -33,7 +33,7 @@ public class HookerSub extends Subsystem {
     // here. Call these from Commands.
 
     public void initDefaultCommand() {
-    	setDefaultCommand(new StopHooking());
+    	setDefaultCommand(new StopLifting());
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }

@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team2977.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2977.robot.subsystems.ExampleSubsystem;
-import org.usfirst.frc.team2977.robot.subsystems.HookerSub;
+import org.usfirst.frc.team2977.robot.subsystems.LifterSub;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -22,7 +22,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static final HookerSub hookerSub = new HookerSub();
+	public static final LifterSub lifterSub = new LifterSub();
 	public static OI oi;
 
     Command autonomousCommand;

@@ -7,10 +7,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class StopHooking extends Command {
+public class LifterForward extends Command {
 
-    public StopHooking() {
-    	requires(Robot.hookerSub);
+    public LifterForward() {
+    	requires(Robot.lifterSub);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -21,7 +21,7 @@ public class StopHooking extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.hookerSub.stopHooking();
+    	Robot.lifterSub.Hook();
     }
 
     // Make this return true when this Command no longer needs to run execute()
