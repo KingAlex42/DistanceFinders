@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveyCommandey extends Command {
+public class DriveCommand extends Command {
 
-    public DriveyCommandey() {
+    public DriveCommand() {
     	requires(Robot.chassis);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

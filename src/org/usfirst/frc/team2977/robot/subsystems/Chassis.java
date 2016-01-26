@@ -22,22 +22,24 @@ public class Chassis extends Subsystem {
 	double constant = .25; //motor speed
 	double factor = .5; 
 	
+	//------------------- Gyro Driving -------------------------------------//
+	
 	public void Reset() { 
 			gyro.reset();
 			SmartDashboard.putBoolean("Resetted", true);
 	  }
 	    
-    public void GyroDrive() { 
+    public void GyroDrive() {   //Drives straight using feedback from a gyro
     	angle = gyro.getAngle();
     	adjust = constant * (factor * angle);
     
     	SmartDashboard.putNumber("Angle", angle);
     	
-    	if (angle < -.1){
+    	if (angle < -.1){  // Robot tilting left
     		AdjustLeftSide();
     	}
     		
-    	if (angle > .1){
+    	if (angle > .1){  // Robot tilting right
     		AdjustRightSide();
     	}
     		
@@ -63,23 +65,15 @@ public class Chassis extends Subsystem {
        		m4.set(constant);
 
        	}
+       	// ---------------------------------------------------------------------//
 	
-	public void Drive(double speed, double rotate) {
+	public void Drive(double speed, double rotate) {  //Drive with manual value input
 		m1.set(speed + rotate);
 		m2.set(speed - rotate);
 		m3.set(speed + rotate);
 		m4.set(speed - rotate);	
 	}
-		 // Put methods for controlling this subsystem //
-        // here. Call these from Commands.            //
-	   // Put methods for controlling this subsystem //
-	  // here. Call these from Commands.            //
-	 // Put methods for controlling this subsystem //
-    // here. Call these from Commands.            //
-   // Put methods for controlling this subsystem //
-  // here. Call these from Commands.            //
- // Put methods for controlling this subsystem //
-	
+
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         setDefaultCommand(new GyroCommand());

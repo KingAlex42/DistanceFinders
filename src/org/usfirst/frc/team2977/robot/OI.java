@@ -24,7 +24,7 @@ public class OI {
 		return stick.getY();	
 	}
 	public OI() {
-		A.whileHeld(new LifterForward());
+		A.whileHeld(new LifterForward());  //Runs the lifter up
 	}
 			
     //// CREATING BUTTONS
