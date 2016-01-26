@@ -10,9 +10,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class LifterSub extends Subsystem {
-    
 	public Jaguar lifter = new Jaguar(5);
-	double lifterspeed = lifter.get();
+	double lifterspeed;
 	
 	public void Lift() {
 		lifter.set(1);
