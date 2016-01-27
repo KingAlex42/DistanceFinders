@@ -67,11 +67,12 @@ public class Chassis extends Subsystem {
        		m4.set(constant);
 
        	}
-       	// ---------------------------------------------------------------------//
+    // ---------------------------------------------------------------------//
+       	//--Standard Drive--//
        	
         public void Drive (double speedL, double speedR) {//Drive with manual value input
-          	m1.set(-speedR);
-           	m3.set(-speedR);
+          	m1.set(speedR);
+           	m3.set(speedR);
         	m2.set(speedL);
         	m4.set(speedL);
     		SmartDashboard.putNumber("Angle", gyro.getAngle());

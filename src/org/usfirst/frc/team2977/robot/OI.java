@@ -18,7 +18,7 @@ public class OI {
 	Button B = new JoystickButton(stick, 2);
 	
 	public double getLeftY() {
-		if (stick.getRawAxis(1) < -.15| stick.getRawAxis(1)> .15){
+		if (stick.getRawAxis(1) < -.15 | stick.getRawAxis(1)> .15){
 			return -stick.getRawAxis(1);
 		}
 		else {
