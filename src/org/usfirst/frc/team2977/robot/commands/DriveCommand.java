@@ -21,7 +21,7 @@ public class DriveCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.chassis.Drive(Robot.oi.getX(), Robot.oi.getY());
+       	 Robot.chassis.Drive(Robot.oi.getLeftY(), Robot.oi.getRightY());
     }
 
     // Make this return true when this Command no longer needs to run execute()

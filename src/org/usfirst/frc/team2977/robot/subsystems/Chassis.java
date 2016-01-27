@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2977.robot.subsystems;
 
+import org.usfirst.frc.team2977.robot.commands.DriveCommand;
 import org.usfirst.frc.team2977.robot.commands.GyroCommand;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
@@ -12,10 +13,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Chassis extends Subsystem {
 	
-	Talon m1 = new Talon(1);
-	Talon m2 = new Talon(2);
-	Talon m3 = new Talon(3);
-	Talon m4 = new Talon(4);
+	Talon m1 = new Talon(1);  //front Right
+	Talon m2 = new Talon(2);  //front Left
+	Talon m3 = new Talon(3);  //back Right
+	Talon m4 = new Talon(4);  //back Left
 	AnalogGyro gyro = new AnalogGyro(1); 
 	double adjust;  
 	double angle; // not degrees	
@@ -67,17 +68,19 @@ public class Chassis extends Subsystem {
 
        	}
        	// ---------------------------------------------------------------------//
-	
-	public void Drive(double speed, double rotate) {  //Drive with manual value input
-		m1.set(speed + rotate);
-		m2.set(speed - rotate);
-		m3.set(speed + rotate);
-		m4.set(speed - rotate);	
-	}
+       	
+        public void Drive (double speedL, double speedR) {//Drive with manual value input
+          	m1.set(-speedR);
+           	m3.set(-speedR);
+        	m2.set(speedL);
+        	m4.set(speedL);
+    		SmartDashboard.putNumber("Angle", gyro.getAngle());
+        }
+
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new GyroCommand());
+        setDefaultCommand(new DriveCommand());
     }
 }
 

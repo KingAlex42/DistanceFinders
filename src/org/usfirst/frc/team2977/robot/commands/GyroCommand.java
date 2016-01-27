@@ -17,6 +17,7 @@ public class GyroCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	System.out.println("Gyro Drive Enabled");
     	Robot.chassis.Reset();
     }
 
@@ -32,6 +33,7 @@ public class GyroCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	System.out.println("Manual Drive Control Restored");
     }
 
     // Called when another command which requires one or more of the same
