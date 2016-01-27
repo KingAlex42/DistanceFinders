@@ -20,7 +20,7 @@ public class Chassis extends Subsystem {
 	double adjust;  
 	double angle; // not degrees	
 	double constant = .25; //motor speed
-	double factor = .5; 
+	double factor = .75; 
 	
 	//------------------- Gyro Driving -------------------------------------//
 	
@@ -31,16 +31,17 @@ public class Chassis extends Subsystem {
 	    
     public void GyroDrive() {   //Drives straight using feedback from a gyro
     	angle = gyro.getAngle();
-    	adjust = constant * (factor * angle);
+    	adjust = Math.abs(constant * (factor * angle));
     
     	SmartDashboard.putNumber("Angle", angle);
+    	SmartDashboard.putNumber("Adjust", adjust);
     	
-    	if (angle < -.1){  // Robot tilting left
-    		AdjustLeftSide();
+    	if (angle < -.1){  // Robot tilting right
+    		AdjustRightSide();
     	}
     		
-    	if (angle > .1){  // Robot tilting right
-    		AdjustRightSide();
+    	if (angle > .1){  // Robot tilting left
+    		AdjustLeftSide();
     	}
     		
     	else {
@@ -49,8 +50,8 @@ public class Chassis extends Subsystem {
     }
     	
     	public void AdjustRightSide() {
-    		m3.set(constant + adjust);  // right side
-       		m1.set(constant + adjust);
+    		m3.set(-(constant + adjust));  // right side
+       		m1.set(-(constant + adjust));
     	}
     
        	public void AdjustLeftSide() {
@@ -59,9 +60,9 @@ public class Chassis extends Subsystem {
     		//Robot.memeBase.meme1.set(dank);
     	}
        	public void SetEqual() {
-       		m1.set(constant);
+       		m1.set(-constant);
        		m2.set(constant);
-       		m3.set(constant);
+       		m3.set(-constant);
        		m4.set(constant);
 
        	}
