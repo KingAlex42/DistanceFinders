@@ -41,12 +41,12 @@ public class Chassis extends Subsystem {
     		AdjustRightSide();
     	}
     		
-    	if (angle > .1){  // Robot tilting left
+    	else if (angle > .1){  // Robot tilting left
     		AdjustLeftSide();
     	}
     		
     	else {
-    		SetEqual();
+    		SetEqual();   //Within acceptable threshold
     	}
     }
     	
