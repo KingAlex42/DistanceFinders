@@ -1,7 +1,6 @@
 package org.usfirst.frc.team2977.robot.subsystems;
 
 import org.usfirst.frc.team2977.robot.commands.DriveCommand;
-import org.usfirst.frc.team2977.robot.commands.GyroCommand;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Talon;
