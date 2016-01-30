@@ -7,21 +7,27 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ShaftEncoderCommand extends Command {
+public class GyroTurn extends Command {
+	double startingAngle;
+	double currentAngle;
+	double turnAngle;
 
-    public ShaftEncoderCommand() {
-    	requires(Robot.lifterSub);
+    public GyroTurn(double angle) {  //GyroAngle, not actual angle
+    	requires(Robot.chassis);
+    	turnAngle = angle;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	startingAngle = Robot.chassis.GyroAngle();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lifterSub.advancedLifter();
+    	if(turnAngle > 0) { //robot turn left
+    	Robot.chassis.Drive(-1, 1);
     }
 
     // Make this return true when this Command no longer needs to run execute()

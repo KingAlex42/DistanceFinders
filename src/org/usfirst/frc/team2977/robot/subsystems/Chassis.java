@@ -49,22 +49,26 @@ public class Chassis extends Subsystem {
     	}
     }
     	
-    	public void AdjustRightSide() {
+    	void AdjustRightSide() {
     		m3.set(-(constant + adjust));  // right side
        		m1.set(-(constant + adjust));
     	}
     
-       	public void AdjustLeftSide() {
+       	void AdjustLeftSide() {
    			m4.set(constant + adjust);	 // left side
    			m2.set(constant + adjust);
     		//Robot.memeBase.meme1.set(dank);
     	}
-       	public void SetEqual() {
+       	void SetEqual() {
        		m1.set(-constant);
        		m2.set(constant);
        		m3.set(-constant);
        		m4.set(constant);
 
+       	}
+       	
+       	public double GyroAngle() {
+       		return gyro.getAngle();
        	}
     // ---------------------------------------------------------------------//
        	//--Standard Drive--//
@@ -74,7 +78,7 @@ public class Chassis extends Subsystem {
            	m3.set(speedR);
         	m2.set(speedL);
         	m4.set(speedL);
-    		SmartDashboard.putNumber("Angle", gyro.getAngle());
+    		SmartDashboard.putNumber("Angle", GyroAngle());
         }
 
 

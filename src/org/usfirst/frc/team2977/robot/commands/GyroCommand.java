@@ -8,15 +8,21 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class GyroCommand extends Command {
+	boolean isAuto;
 
     public GyroCommand() {
     	requires(Robot.chassis);
+    	isAuto = false;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
+    public GyroCommand(double duration) {
+    	isAuto = true;
+    	setTimeout(duration);
+    }
 
     // Called just before this Command runs the first time
-    protected void initialize() {
+    protected void initialize() { 
     	System.out.println("Gyro Drive Enabled");
     	Robot.chassis.Reset();
     }
@@ -28,6 +34,9 @@ public class GyroCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	if(isAuto) {
+    		return isTimedOut();
+    	}
         return false;
     }
 
