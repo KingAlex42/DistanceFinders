@@ -29,18 +29,18 @@ public class Chassis extends Subsystem {
 			SmartDashboard.putBoolean("Resetted", true);
 	  }
 	    
-    public void GyroDrive() {   //Drives straight using feedback from a gyro
+    public void GyroDrive(double turnAngle) {   //Drives straight using feedback from a gyro
     	angle = gyro.getAngle();
     	adjust = Math.abs(constant * (factor * angle));
     
     	SmartDashboard.putNumber("Angle", angle);
     	SmartDashboard.putNumber("Adjust", adjust);
     	
-    	if (angle < -.1){  // Robot tilting right
+    	if (angle < turnAngle -.1){  // Robot tilting right
     		AdjustRightSide();
     	}
     		
-    	else if (angle > .1){  // Robot tilting left
+    	else if (angle > turnAngle + .1){  // Robot tilting left
     		AdjustLeftSide();
     	}
     		
@@ -74,8 +74,8 @@ public class Chassis extends Subsystem {
        	//--Standard Drive--//
        	
         public void Drive (double speedL, double speedR) {//Drive with manual value input
-          	m1.set(speedR);
-           	m3.set(speedR);
+          	m1.set(-speedR);
+           	m3.set(-speedR);
         	m2.set(speedL);
         	m4.set(speedL);
     		SmartDashboard.putNumber("Angle", GyroAngle());

@@ -8,6 +8,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class StandardAuto extends CommandGroup {
     
     public  StandardAuto() {
+    	addSequential(new GyroCommand(3, 0));
+    	addSequential(new GyroTurn(-21));
+    	addSequential(new GyroCommand(2, 0));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

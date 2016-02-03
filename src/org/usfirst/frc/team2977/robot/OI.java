@@ -28,7 +28,7 @@ public class OI {
 	
 	public double getRightY() { 
 		if (stick.getRawAxis(5) < -.15 | stick.getRawAxis(5) > .15) {
-			return stick.getRawAxis(5);
+			return -stick.getRawAxis(5);
 					
 		}
 		else {

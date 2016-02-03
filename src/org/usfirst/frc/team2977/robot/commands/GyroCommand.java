@@ -9,16 +9,20 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class GyroCommand extends Command {
 	boolean isAuto;
+	double angle;
 
-    public GyroCommand() {
+    public GyroCommand() { //For Tele-op
     	requires(Robot.chassis);
     	isAuto = false;
+    	angle = 0;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
-    public GyroCommand(double duration) {
+    public GyroCommand(double duration, double turnAngle) { //For autonomous
+    	requires(Robot.chassis);
     	isAuto = true;
     	setTimeout(duration);
+    	angle = turnAngle;
     }
 
     // Called just before this Command runs the first time
@@ -29,7 +33,7 @@ public class GyroCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.chassis.GyroDrive();
+    	Robot.chassis.GyroDrive(angle);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -48,5 +52,6 @@ public class GyroCommand extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	System.out.println("Manual Drive Control Restored");
     }
 }
