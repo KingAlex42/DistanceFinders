@@ -19,8 +19,8 @@ public class LifterSub extends Subsystem {
 	public DigitalSource aChannel;
     public DigitalSource bChannel;
 	Encoder encoder = new Encoder(aChannel, bChannel);
-	int shaft = encoder.get();
-
+	int shaft = encoder.getRaw();
+ 
 	public void Lift() {
 		motor.set(1);
 	}
