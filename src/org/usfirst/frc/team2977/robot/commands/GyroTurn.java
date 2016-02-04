@@ -73,7 +73,7 @@ public class GyroTurn extends Command {
     		}
     	}
     
-    //dont put ALL of the memes in your car they might get stolen
+   
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return !beforeThreshold && !pastThreshold;
