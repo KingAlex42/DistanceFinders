@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team2977.robot.commands.GyroCommand;
-import org.usfirst.frc.team2977.robot.commands.LifterForward;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -37,7 +36,6 @@ public class OI {
 		
 	}
 	public OI() {
-		A.whileHeld(new LifterForward());  //Runs the lifter up
 		B.whileHeld(new GyroCommand());
 	}
 			
