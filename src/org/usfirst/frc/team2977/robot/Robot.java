@@ -6,31 +6,16 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team2977.robot.commands.ExampleCommand;
-import org.usfirst.frc.team2977.robot.subsystems.ArmSubsystem;
-import org.usfirst.frc.team2977.robot.subsystems.BigKicker;
 import org.usfirst.frc.team2977.robot.subsystems.Chassis;
 import org.usfirst.frc.team2977.robot.subsystems.ExampleSubsystem;
-import org.usfirst.frc.team2977.robot.subsystems.IOSubsystem;
-import org.usfirst.frc.team2977.robot.subsystems.Lifter;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-/**
- * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
- * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the manifest file in the resource
- * directory.
- */
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final Chassis chassis = new Chassis();
-	public static ArmSubsystem armSubsystem = new ArmSubsystem();
-	public static final IOSubsystem ioSubsystem = new IOSubsystem();
-	public static final BigKicker bigKicker = new BigKicker();
-	public static final Lifter lifter = new Lifter();
 
 	public static OI oi;
 
