@@ -5,6 +5,7 @@ import org.usfirst.frc.team2977.robot.commands.DriveCommand;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -20,16 +21,20 @@ public class Chassis extends Subsystem {
 	Talon m4 = new Talon(4);  //back Left
 	AnalogGyro gyro = new AnalogGyro(1); 
 	Accelerometer accel = new BuiltInAccelerometer();
+	Timer gyroTime = new Timer();
 	double accelX;
 	double accelY;
 	double accelZ;
 	double adjust;  
 	double angle; // not degrees	
+	double dCoefficient = 1;  //Amount of raw gyro reading drift per second.
+	double drift;
 	double constant = .25; //motor speed
 	double factor = .75; 
 	
 	public Chassis() {
 		gyro.reset();
+		gyroTime.start();
 		gyro.calibrate();
 	}
 	//--------------------Accelerometer--------------------------------------//
@@ -64,7 +69,7 @@ public class Chassis extends Subsystem {
 		getX();
 		getY();
 		getZ();
-    	angle = gyro.getAngle();
+    	angle = GyroAngle();
     	adjust = Math.abs(constant * (factor * angle));
     
     	SmartDashboard.putNumber("Angle", angle);
@@ -103,7 +108,9 @@ public class Chassis extends Subsystem {
        	}
        	
        	public double GyroAngle() {
-       		return gyro.getAngle();
+       		drift = dCoefficient * gyroTime.get();
+       		angle = gyro.getAngle() - drift;
+       		return angle;
        	}
     // ---------------------------------------------------------------------//
        	//--Standard Drive--//

@@ -18,6 +18,7 @@ public class OI {
 	Button A = new JoystickButton(stick, 1);
 	Button B = new JoystickButton(stick, 2);
 	Button Y = new JoystickButton(stick, 4);
+	Button RT = new JoystickButton(stick, 10);
 	
 	public double getLeftY() {
 		if (stick.getRawAxis(1) < -.15 | stick.getRawAxis(1)> .15){
