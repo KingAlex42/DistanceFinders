@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team2977.robot.commands.GyroCommand;
+import org.usfirst.frc.team2977.robot.commands.GyroDataGenerator;
 import org.usfirst.frc.team2977.robot.commands.LifterForward;
 
 /**
@@ -16,6 +17,7 @@ public class OI {
 	Joystick stick = new Joystick(1);
 	Button A = new JoystickButton(stick, 1);
 	Button B = new JoystickButton(stick, 2);
+	Button Y = new JoystickButton(stick, 4);
 	
 	public double getLeftY() {
 		if (stick.getRawAxis(1) < -.15 | stick.getRawAxis(1)> .15){
@@ -39,6 +41,7 @@ public class OI {
 	public OI() {
 		A.whileHeld(new LifterForward());  //Runs the lifter up
 		B.whileHeld(new GyroCommand());
+		Y.whenPressed(new GyroDataGenerator(1, 15));
 	}
 			
     //// CREATING BUTTONS
