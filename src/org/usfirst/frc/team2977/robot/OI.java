@@ -5,6 +5,8 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team2977.robot.commands.GyroCommand;
+import org.usfirst.frc.team2977.robot.commands.IntakeCommand;
+import org.usfirst.frc.team2977.robot.commands.OuttakeCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -15,6 +17,14 @@ public class OI {
 	Joystick stick = new Joystick(1);
 	Button A = new JoystickButton(stick, 1);
 	Button B = new JoystickButton(stick, 2);
+	Button X = new JoystickButton(stick, 3);
+	Button Y = new JoystickButton(stick, 4);
+	Button LB = new JoystickButton(stick, 5);
+	Button RB = new JoystickButton(stick, 6);
+	Button Select = new JoystickButton(stick, 7);
+	Button Start = new JoystickButton(stick, 8);
+	Button L3 = new JoystickButton(stick, 9);
+	Button R3 = new JoystickButton(stick, 10);
 	
 	public double getLeftY() {
 		if (stick.getRawAxis(1) < -.15 | stick.getRawAxis(1)> .15){
@@ -37,6 +47,8 @@ public class OI {
 	}
 	public OI() {
 		B.whileHeld(new GyroCommand());
+		LB.whenPressed(new IntakeCommand());
+		RB.whileHeld(new OuttakeCommand());
 	}
 			
     //// CREATING BUTTONS

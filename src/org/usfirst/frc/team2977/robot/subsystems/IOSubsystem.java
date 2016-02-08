@@ -1,4 +1,3 @@
-
 package org.usfirst.frc.team2977.robot.subsystems;
 
 import org.usfirst.frc.team2977.robot.RobotMap;
@@ -6,7 +5,7 @@ import org.usfirst.frc.team2977.robot.commands.INITCommand;
 //import org.usfirst.frc.team2977.robot.commands.IntakeCommand;
 
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Jaguar;
+import edu.wpi.first.wpilibj.Talon;
 //import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -16,7 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class IOSubsystem extends Subsystem {
 	
-    Jaguar intaker = new Jaguar (RobotMap.intaker);
+    Talon intaker = new Talon (RobotMap.intaker);
     DigitalInput intakeLimit = new DigitalInput(RobotMap.intakeLimit);
     
     public void INIT() {
