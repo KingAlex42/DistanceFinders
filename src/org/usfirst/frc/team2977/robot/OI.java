@@ -11,7 +11,7 @@ import org.usfirst.frc.team2977.robot.commands.OuttakeCommand;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
- */
+ */ 
 public class OI {
 	
 	Joystick stick = new Joystick(1);
@@ -25,6 +25,12 @@ public class OI {
 	Button Start = new JoystickButton(stick, 8);
 	Button L3 = new JoystickButton(stick, 9);
 	Button R3 = new JoystickButton(stick, 10);
+	
+	public OI() {
+		B.whileHeld(new GyroCommand());
+		LB.whenPressed(new IntakeCommand());
+		RB.whileHeld(new OuttakeCommand());
+	}
 	
 	public double getLeftY() {
 		if (stick.getRawAxis(1) < -.15 | stick.getRawAxis(1)> .15){
@@ -45,11 +51,7 @@ public class OI {
 		}
 		
 	}
-	public OI() {
-		B.whileHeld(new GyroCommand());
-		LB.whenPressed(new IntakeCommand());
-		RB.whileHeld(new OuttakeCommand());
-	}
+
 			
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.

@@ -13,8 +13,11 @@ public class RobotMap {
 	public static int m4 = 4;
 	
 	public static int intaker = 5;
+	public static int motor = 6;
 	
-	public static int intakeLimit = 0;
+	public static int intakeLimit = 0;	
+	public static int limit1 = 5;
+	public static int limit2 = 6;
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
     // public static int leftMotor = 1;
