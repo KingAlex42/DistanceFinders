@@ -30,6 +30,14 @@ public class CanChassis extends Subsystem {
 	double factor = .75; 
 	
 	public CanChassis() {
+		m1.enableControl();
+		m2.enableControl();
+		m3.enableControl();
+		m4.enableControl();
+		m1.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+		m2.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+		m3.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+		m4.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
 		gyro.reset();
 		gyro.calibrate();
 	}
