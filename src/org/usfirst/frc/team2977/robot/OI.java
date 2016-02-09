@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team2977.robot.commands.GyroCommand;
 import org.usfirst.frc.team2977.robot.commands.IntakeCommand;
 import org.usfirst.frc.team2977.robot.commands.OuttakeCommand;
+import org.usfirst.frc.team2977.robot.commands.RunKicker;
 import org.usfirst.frc.team2977.robot.commands.GyroDataGenerator;
 
 
@@ -55,6 +56,7 @@ public class OI {
 		LB.whenPressed(new IntakeCommand());
 		RB.whileHeld(new OuttakeCommand());
 		Y.whenPressed(new GyroDataGenerator(1, 15));
+		X.whenPressed(new RunKicker(RobotMap.kickerMaxSpeed));
 
 	}
 			

@@ -12,7 +12,10 @@ public class RobotMap {
 	public static int m3 = 3;
 	public static int m4 = 4;
 	public static int intaker = 5;
+	public static int kicker = 6;
 	public static int intakeLimit = 0;
+	public static int kickerSwitch = 1;
+	public static int kickerMaxSpeed = 1;  //max speed for the kicker
 	public static int gyroCoefficient = 42;
 	
 
