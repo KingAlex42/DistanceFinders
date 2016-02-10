@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class CanChassis extends Subsystem {
+public class CANChassis extends Subsystem {
 	
 	CANTalon m1 = new CANTalon(1);  //front Right
 	CANTalon m2 = new CANTalon(2);  //front Left
@@ -29,7 +29,7 @@ public class CanChassis extends Subsystem {
 	double constant = .25; //motor speed
 	double factor = .75; 
 	
-	public CanChassis() {
+	public CANChassis() {
 		m1.enableControl();
 		m2.enableControl();
 		m3.enableControl();

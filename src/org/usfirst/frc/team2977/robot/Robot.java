@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team2977.robot.commands.ExampleCommand;
 import org.usfirst.frc.team2977.robot.commands.GyroCommand;
 import org.usfirst.frc.team2977.robot.commands.StandardAuto;
+import org.usfirst.frc.team2977.robot.subsystems.CANChassis;
 import org.usfirst.frc.team2977.robot.subsystems.Chassis;
 import org.usfirst.frc.team2977.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2977.robot.subsystems.IOSubsystem;
@@ -25,7 +26,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static final Chassis chassis = new Chassis();
+	public static final CANChassis chassis = new CANChassis();
 	public static final IOSubsystem ioSubsystem = new IOSubsystem();
 	public static OI oi;
 
