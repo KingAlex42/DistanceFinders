@@ -6,17 +6,30 @@ package org.usfirst.frc.team2977.robot;
  * floating around.
  */
 public class RobotMap {
+	//CAN
+	public static int m1 = 2;	//front right
+	public static int m2 = 4;	//front left	
+	public static int m3 = 3;	//back right
+	public static int m4 = 1;	//back left
 	
-	public static int m1 = 1;
-	public static int m2 = 2;
-	public static int m3 = 3;
-	public static int m4 = 4;
-	public static int intaker = 5;
-	public static int intakeLimit = 2;
-	public static int gyroCoefficient = 42;
-	public static int winchLimit = 0;
+	//PWM
 	public static int winch = 5;
+	public static int intaker = 0;
+	public static int arm = 1;
+	public static int kickerA = 2;
+	public static int kickerB = 3;
+	public static int lifter = 4;  //Victor
 	
+	
+	//DigitalInput
+	public static int intakeLimit = 1;
+	public static int winchLimit = 0;
+	
+	//Analog
+	public static int gyro = 0;
+	
+	//Constants
+	public static int gyroCoefficient = 42;
 
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.

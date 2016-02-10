@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2977.robot.subsystems;
 
+import org.usfirst.frc.team2977.robot.RobotMap;
 import org.usfirst.frc.team2977.robot.commands.DriveCommand;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
@@ -14,10 +15,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class CANChassis extends Subsystem {
 	
-	CANTalon m1 = new CANTalon(1);  //front Right
-	CANTalon m2 = new CANTalon(2);  //front Left
-	CANTalon m3 = new CANTalon(3);  //back Right
-	CANTalon m4 = new CANTalon(4);  //back Left
+	CANTalon m1 = new CANTalon(RobotMap.m1);  //front Right
+	CANTalon m2 = new CANTalon(RobotMap.m2);  //front Left
+	CANTalon m3 = new CANTalon(RobotMap.m3);  //back Right
+	CANTalon m4 = new CANTalon(RobotMap.m4);  //back Left
 	AnalogGyro gyro = new AnalogGyro(1); 
 	Accelerometer accel = new BuiltInAccelerometer();
 	double accelX;
