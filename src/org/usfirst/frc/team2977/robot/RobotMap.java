@@ -20,7 +20,6 @@ public class RobotMap {
 	public static int kickerB = 3;
 	public static int lifter = 4;  //Victor
 	
-	
 	//DigitalInput
 	public static int intakeLimit = 1;
 	public static int winchLimit = 0;
