@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
-import org.usfirst.frc.team2977.robot.commands.RunKicker;
+import org.usfirst.frc.team2977.robot.commands.Shoot;
 import org.usfirst.frc.team2977.robot.commands.StandardAuto;
 import org.usfirst.frc.team2977.robot.subsystems.CANChassis;
 import org.usfirst.frc.team2977.robot.subsystems.Chassis;
