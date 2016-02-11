@@ -5,14 +5,13 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc.team2977.robot.commands.ExampleCommand;
-import org.usfirst.frc.team2977.robot.commands.GyroCommand;
 import org.usfirst.frc.team2977.robot.commands.StandardAuto;
+import org.usfirst.frc.team2977.robot.subsystems.CANChassis;
 import org.usfirst.frc.team2977.robot.subsystems.Chassis;
 import org.usfirst.frc.team2977.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2977.robot.subsystems.IOSubsystem;
 import org.usfirst.frc.team2977.robot.subsystems.Kicker;
-
+import org.usfirst.frc.team2977.robot.subsystems.Winch;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -26,9 +25,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static final Chassis chassis = new Chassis();
+	public static final CANChassis chassis = new CANChassis();
 	public static final IOSubsystem ioSubsystem = new IOSubsystem();
 	public static final Kicker kicker = new Kicker();
+	public static final Winch winchSubsystem = new Winch();
 	public static OI oi;
 
     Command autonomousCommand;

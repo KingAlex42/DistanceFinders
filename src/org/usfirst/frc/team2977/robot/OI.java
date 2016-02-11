@@ -7,6 +7,8 @@ import org.usfirst.frc.team2977.robot.commands.GyroCommand;
 import org.usfirst.frc.team2977.robot.commands.IntakeCommand;
 import org.usfirst.frc.team2977.robot.commands.OuttakeCommand;
 import org.usfirst.frc.team2977.robot.commands.RunKicker;
+import org.usfirst.frc.team2977.robot.commands.MoveWincho;
+import org.usfirst.frc.team2977.robot.commands.ResetCount;
 import org.usfirst.frc.team2977.robot.commands.GyroDataGenerator;
 
 
@@ -20,12 +22,11 @@ public class OI {
 	Joystick stick = new Joystick(1);
 	Button A = new JoystickButton(stick, 1);
 	Button B = new JoystickButton(stick, 2);
-
 	Button X = new JoystickButton(stick, 3);
 	Button Y = new JoystickButton(stick, 4);
 	Button LB = new JoystickButton(stick, 5);
 	Button RB = new JoystickButton(stick, 6);
-	Button Select = new JoystickButton(stick, 7);
+	Button Back = new JoystickButton(stick, 7);
 	Button Start = new JoystickButton(stick, 8);
 	Button L3 = new JoystickButton(stick, 9);
 	Button R3 = new JoystickButton(stick, 10);
@@ -56,7 +57,10 @@ public class OI {
 		LB.whenPressed(new IntakeCommand());
 		RB.whileHeld(new OuttakeCommand());
 		Y.whenPressed(new GyroDataGenerator(1, 15));
-		X.whenPressed(new RunKicker(RobotMap.kickerMaxSpeed));
+		A.whenPressed(new RunKicker(RobotMap.kickerMaxSpeed));
+		Back.whileHeld(new MoveWincho());
+		X.whenPressed(new ResetCount());
+
 
 	}
 			

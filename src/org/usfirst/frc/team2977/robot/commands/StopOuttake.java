@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class StopOuttake extends Command {
 boolean isDone;
     public StopOuttake() {
+    	requires(Robot.ioSubsystem);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -21,12 +22,12 @@ boolean isDone;
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.ioSubsystem.Stop();
-    	isDone = true;
+    	//isDone = true;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isDone;
+        return false;
     }
 
     // Called once after isFinished returns true

@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Kicker extends Subsystem {
 	static final double coefficientSpeed = 1;
-	Talon kicker = new Talon(RobotMap.kicker);
+	Talon kicker = new Talon(RobotMap.kickerA);
 	DigitalInput kickerSwitch = new DigitalInput(RobotMap.kickerSwitch);
 	boolean kickerState;
     

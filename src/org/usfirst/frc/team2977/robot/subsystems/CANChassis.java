@@ -1,11 +1,11 @@
 package org.usfirst.frc.team2977.robot.subsystems;
 
+import org.usfirst.frc.team2977.robot.RobotMap;
 import org.usfirst.frc.team2977.robot.commands.DriveCommand;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -13,12 +13,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class CanChassis extends Subsystem {
+public class CANChassis extends Subsystem {
 	
-	CANTalon m1 = new CANTalon(1);  //front Right
-	CANTalon m2 = new CANTalon(2);  //front Left
-	CANTalon m3 = new CANTalon(3);  //back Right
-	CANTalon m4 = new CANTalon(4);  //back Left
+	CANTalon m1 = new CANTalon(RobotMap.m1);  //front Right
+	CANTalon m2 = new CANTalon(RobotMap.m2);  //front Left
+	CANTalon m3 = new CANTalon(RobotMap.m3);  //back Right
+	CANTalon m4 = new CANTalon(RobotMap.m4);  //back Left
 	AnalogGyro gyro = new AnalogGyro(1); 
 	Accelerometer accel = new BuiltInAccelerometer();
 	double accelX;
@@ -29,7 +29,7 @@ public class CanChassis extends Subsystem {
 	double constant = .25; //motor speed
 	double factor = .75; 
 	
-	public CanChassis() {
+	public CANChassis() {
 		m1.enableControl();
 		m2.enableControl();
 		m3.enableControl();
