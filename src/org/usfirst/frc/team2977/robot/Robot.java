@@ -5,6 +5,8 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
+import org.usfirst.frc.team2977.robot.commands.RunKicker;
 import org.usfirst.frc.team2977.robot.commands.StandardAuto;
 import org.usfirst.frc.team2977.robot.subsystems.CANChassis;
 import org.usfirst.frc.team2977.robot.subsystems.Chassis;
@@ -54,6 +56,8 @@ public class Robot extends IterativeRobot {
     public void disabledInit(){
 
     }
+    
+
 	
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();

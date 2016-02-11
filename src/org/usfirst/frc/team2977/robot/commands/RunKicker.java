@@ -1,8 +1,10 @@
 package org.usfirst.frc.team2977.robot.commands;
 
 import org.usfirst.frc.team2977.robot.Robot;
+import org.usfirst.frc.team2977.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -16,8 +18,8 @@ public class RunKicker extends Command {
 
     public RunKicker(double speed) {
     	requires(Robot.kicker);
-    	setTimeout(5);
-    	currentSpeed = speed;
+    	setTimeout(2);
+    	currentSpeed = RobotMap.kickerMaxSpeed;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -27,13 +29,17 @@ public class RunKicker extends Command {
     	hasPassed = false;
     	isDone = false;
     	startingState = Robot.kicker.limitSwitch();
-    	finalOscillation = currentSpeed < -.5; 
+    	finalOscillation = currentSpeed < -.1; 
+    	SmartDashboard.putNumber("CurrentSpeed", currentSpeed);
     	/* since the code is meant to oscillate back to try and get as close to the switch as possible, the negative value
     	 * is meant to make sure the kicker always ends before or on the limitswitch   */
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.kicker.forward(currentSpeed);
+    	
+    	
     	if(startingState) {  //if the kicker starts on the limit switch, it first needs to move off it
     		Robot.kicker.forward(currentSpeed);  
     		while(!hasPassed && !isTimedOut()) {  //Move Kicker until it is off the limit switch
@@ -68,7 +74,7 @@ public class RunKicker extends Command {
     protected void end() {
     	Robot.kicker.stop(); 
     	if(!finalOscillation) {
-    		new RunKicker(-currentSpeed *.5);  //run the kicker in the other direction for a more accurate position on the switch
+    		Robot.oi.oscillateKicker(-currentSpeed *.15);  //run the kicker in the other direction for a more accurate position on the switch
     	}
     }
 

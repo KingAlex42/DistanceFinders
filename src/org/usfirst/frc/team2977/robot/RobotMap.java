@@ -30,7 +30,7 @@ public class RobotMap {
 	
 	//Constants
 	public static int gyroCoefficient = 42;
-	public static int kickerMaxSpeed = 1;  //max speed for the kicker
+	public static double kickerMaxSpeed = 1;  //max speed for the kicker
 
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.

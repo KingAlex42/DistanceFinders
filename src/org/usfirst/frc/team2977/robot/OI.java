@@ -3,10 +3,14 @@ package org.usfirst.frc.team2977.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.Trigger;
+import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc.team2977.robot.commands.GyroCommand;
 import org.usfirst.frc.team2977.robot.commands.IntakeCommand;
 import org.usfirst.frc.team2977.robot.commands.OuttakeCommand;
 import org.usfirst.frc.team2977.robot.commands.RunKicker;
+import org.usfirst.frc.team2977.robot.triggers.KickerDone;
 import org.usfirst.frc.team2977.robot.commands.MoveWincho;
 import org.usfirst.frc.team2977.robot.commands.ResetCount;
 import org.usfirst.frc.team2977.robot.commands.GyroDataGenerator;
@@ -30,6 +34,8 @@ public class OI {
 	Button Start = new JoystickButton(stick, 8);
 	Button L3 = new JoystickButton(stick, 9);
 	Button R3 = new JoystickButton(stick, 10);
+	Trigger kickerDone = new KickerDone();
+	Command kickerCommand;
 
 	
 	public double getLeftY() {
@@ -60,9 +66,15 @@ public class OI {
 		A.whenPressed(new RunKicker(RobotMap.kickerMaxSpeed));
 		Back.whileHeld(new MoveWincho());
 		X.whenPressed(new ResetCount());
+		
 
 
 	}
+	
+    public void oscillateKicker(double speed) {
+    	kickerCommand = new RunKicker(speed);
+    	kickerCommand.start();
+    }
 			
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
