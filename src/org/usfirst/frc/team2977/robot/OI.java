@@ -49,7 +49,17 @@ public class OI {
 		else {
 			return 0;
 		}
-		
+	}
+		public double getRightX() { 
+			if (stick.getRawAxis(4) < -.15 | stick.getRawAxis(4) > .15) {
+
+				return -stick.getRawAxis(4);
+						
+			}
+			else {
+				return 0;
+			}
+			
 	}
 	public OI() {
 		B.whileHeld(new GyroCommand());
