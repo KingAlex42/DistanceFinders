@@ -14,8 +14,10 @@ public class RobotMap {
 	public static int intaker = 5;
 	public static int intakeLimit = 2;
 	public static int gyroCoefficient = 42;
-	public static int winchLimit = 0;
-	public static int winch = 5;
+	public static int winchLimit = 1;
+	public static int winch = 6;
+	public static int motor = 5;
+	public static int limit1 = 0;
 	
 
     // For example to map the left and right motors, you could define the
