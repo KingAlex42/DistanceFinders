@@ -33,7 +33,7 @@ public class IOSubsystem extends Subsystem {
     }
     
     public boolean limitSwitch() {
-    	intaked = !intakeLimit.get();
+    	intaked = intakeLimit.get();
     	SmartDashboard.putBoolean("IntakeSwitch", intaked);
     	return intaked;
     }
