@@ -9,6 +9,9 @@ import org.usfirst.frc.team2977.robot.commands.ArmMove;
 import org.usfirst.frc.team2977.robot.commands.ArmStop;
 import org.usfirst.frc.team2977.robot.commands.GyroCommand;
 import org.usfirst.frc.team2977.robot.commands.IntakeCommand;
+import org.usfirst.frc.team2977.robot.commands.LiftDownCommand;
+import org.usfirst.frc.team2977.robot.commands.LiftStop;
+import org.usfirst.frc.team2977.robot.commands.LifterCommand;
 import org.usfirst.frc.team2977.robot.commands.MoveWincho;
 import org.usfirst.frc.team2977.robot.commands.OuttakeCommand;
 import org.usfirst.frc.team2977.robot.commands.ResetCount;
@@ -23,6 +26,7 @@ import org.usfirst.frc.team2977.robot.commands.GyroDataGenerator;
 public class OI {
 	
 	Joystick stick = new Joystick(1);
+	Joystick stick2 = new Joystick(2);
 	Button A = new JoystickButton(stick, 1);
 	Button B = new JoystickButton(stick, 2);
 	Button X = new JoystickButton(stick, 3);
@@ -33,6 +37,8 @@ public class OI {
 	Button Start = new JoystickButton(stick, 8);
 	Button L3 = new JoystickButton(stick, 9);
 	Button R3 = new JoystickButton(stick, 10);
+	Button Y2 = new JoystickButton(stick2, 4);
+	Button B2 = new JoystickButton(stick2, 5);
 
 	public OI() {
 		B.whileHeld(new GyroCommand());
@@ -45,6 +51,11 @@ public class OI {
 		Start.whenReleased(new ArmStop());
 		Back.whenPressed(new ArmBack());
 		Back.whenReleased(new ArmStop());
+		Y2.whenPressed(new LifterCommand());
+		Y2.whenReleased(new LiftStop());
+		B2.whenPressed(new LiftDownCommand());
+		B2.whenReleased(new LiftStop());
+
 
 	}
 	public double getLeftY() {

@@ -11,6 +11,7 @@ import org.usfirst.frc.team2977.robot.subsystems.ArmSubsystem;
 import org.usfirst.frc.team2977.robot.subsystems.Chassis;
 import org.usfirst.frc.team2977.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2977.robot.subsystems.IOSubsystem;
+import org.usfirst.frc.team2977.robot.subsystems.LifterSubsystem;
 import org.usfirst.frc.team2977.robot.subsystems.Winch;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -31,6 +32,7 @@ public class Robot extends IterativeRobot {
 	public static final Winch winchSubsystem = new Winch();
 	public static final ArmSubsystem armSubsystem = new ArmSubsystem();
 	public static OI oi;
+	public static final LifterSubsystem lifterSubsystem = new LifterSubsystem();
 
     Command autonomousCommand;
     SendableChooser chooser;
