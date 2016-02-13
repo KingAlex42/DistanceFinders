@@ -26,6 +26,9 @@ public class RobotMap {
 	
 	//Analog
 	public static int gyro = 0;
+	public static int motor = 5;
+	public static int limit1 = 2;
+
 	
 	//Constants
 	public static int gyroCoefficient = 42;

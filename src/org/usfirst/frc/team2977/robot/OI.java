@@ -3,6 +3,10 @@ package org.usfirst.frc.team2977.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+import org.usfirst.frc.team2977.robot.commands.ArmBack;
+import org.usfirst.frc.team2977.robot.commands.ArmMove;
+import org.usfirst.frc.team2977.robot.commands.ArmStop;
 import org.usfirst.frc.team2977.robot.commands.GyroCommand;
 import org.usfirst.frc.team2977.robot.commands.IntakeCommand;
 import org.usfirst.frc.team2977.robot.commands.MoveWincho;
@@ -30,7 +34,19 @@ public class OI {
 	Button L3 = new JoystickButton(stick, 9);
 	Button R3 = new JoystickButton(stick, 10);
 
-	
+	public OI() {
+		B.whileHeld(new GyroCommand());
+		LB.whenPressed(new IntakeCommand());
+		RB.whileHeld(new OuttakeCommand());
+		Y.whenPressed(new GyroDataGenerator(1, 15));
+		Back.whileHeld(new MoveWincho());
+		X.whenPressed(new ResetCount());
+		L3.whenPressed(new ArmMove());
+		L3.whenReleased(new ArmStop());
+		R3.whenPressed(new ArmBack());
+		R3.whenReleased(new ArmStop());
+
+	}
 	public double getLeftY() {
 		if (stick.getRawAxis(1) < -.15 | stick.getRawAxis(1)> .15){
 			return -stick.getRawAxis(1);
@@ -39,16 +55,14 @@ public class OI {
 		return 0;
 		}
 	}
-	
 	public double getRightY() { 
 		if (stick.getRawAxis(5) < -.15 | stick.getRawAxis(5) > .15) {
-
-			return -stick.getRawAxis(5);
-					
+			return -stick.getRawAxis(5);			
 		}
 		else {
 			return 0;
 		}
+
 	}
 		public double getRightX() { 
 			if (stick.getRawAxis(4) < -.15 | stick.getRawAxis(4) > .15) {
@@ -61,15 +75,8 @@ public class OI {
 			}
 			
 	}
-	public OI() {
-		B.whileHeld(new GyroCommand());
-		LB.whenPressed(new IntakeCommand());
-		RB.whileHeld(new OuttakeCommand());
-		Y.whenPressed(new GyroDataGenerator(1, 15));
-		Back.whileHeld(new MoveWincho());
-		X.whenPressed(new ResetCount());
 
-	}
+
 			
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.

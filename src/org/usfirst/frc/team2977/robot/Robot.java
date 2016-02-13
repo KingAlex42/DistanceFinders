@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team2977.robot.commands.StandardAuto;
 import org.usfirst.frc.team2977.robot.subsystems.CANChassis;
+import org.usfirst.frc.team2977.robot.subsystems.ArmSubsystem;
 import org.usfirst.frc.team2977.robot.subsystems.Chassis;
 import org.usfirst.frc.team2977.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2977.robot.subsystems.IOSubsystem;
@@ -21,13 +22,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * documentation. If you change the name of this class or the package after
  * creating this project, you must also update the manifest file in the resource
  * directory.
- */
+ */ 
 public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final CANChassis chassis = new CANChassis();
 	public static final IOSubsystem ioSubsystem = new IOSubsystem();
 	public static final Winch winchSubsystem = new Winch();
+	public static final ArmSubsystem armSubsystem = new ArmSubsystem();
 	public static OI oi;
 
     Command autonomousCommand;
