@@ -11,7 +11,7 @@ public class RobotMap {
 	public static int m2 = 4;	//front left	
 	public static int m3 = 3;	//back right
 	public static int m4 = 1;	//back left
-	
+
 	//PWM
 	public static int winch = 5;
 	public static int intaker = 0;
@@ -20,13 +20,19 @@ public class RobotMap {
 	public static int kickerB = 3;
 	public static int lifter = 4;  //Victor
 	
+	
 	//DigitalInput
 	public static int intakeLimit = 1;
 	public static int winchLimit = 0;
-	public static int kickerSwitch = 2;  //Not Made Yet
+	public static int kickerSwitch = 2;  
+	public static int limit1 = 3;
+
 	
 	//Analog
 	public static int gyro = 0;
+	
+
+
 	
 	//Constants
 	public static int gyroCoefficient = 42;

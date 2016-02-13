@@ -3,9 +3,10 @@ package org.usfirst.frc.team2977.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.buttons.Trigger;
 import edu.wpi.first.wpilibj.command.Command;
-
+import org.usfirst.frc.team2977.robot.commands.ArmBack;
+import org.usfirst.frc.team2977.robot.commands.ArmMove;
+import org.usfirst.frc.team2977.robot.commands.ArmStop;
 import org.usfirst.frc.team2977.robot.commands.GyroCommand;
 import org.usfirst.frc.team2977.robot.commands.IntakeCommand;
 import org.usfirst.frc.team2977.robot.commands.KickerRoutine;
@@ -36,25 +37,36 @@ public class OI {
 	Button R3 = new JoystickButton(stick, 10);
 	Command kickerCommand;
 
-	
+	public OI() {
+		B.whileHeld(new GyroCommand());
+		LB.whenPressed(new IntakeCommand());
+		RB.whileHeld(new OuttakeCommand());
+		Y.whenPressed(new GyroDataGenerator(1, 15));
+		L3.whileHeld(new MoveWincho());
+		X.whenPressed(new ResetCount());
+		A.whenPressed(new KickerRoutine());
+		Start.whenPressed(new ArmMove());
+		Start.whenReleased(new ArmStop());
+		Back.whenPressed(new ArmBack());
+		Back.whenReleased(new ArmStop());
+
+	}
 	public double getLeftY() {
 		if (stick.getRawAxis(1) < -.15 | stick.getRawAxis(1)> .15){
 			return -stick.getRawAxis(1);
 		}
 		else {
-		return 0;
+			return 0;
 		}
 	}
-	
 	public double getRightY() { 
 		if (stick.getRawAxis(5) < -.15 | stick.getRawAxis(5) > .15) {
-
-			return -stick.getRawAxis(5);
-					
+			return -stick.getRawAxis(5);			
 		}
 		else {
 			return 0;
 		}
+
 	}
 		public double getRightX() { 
 			if (stick.getRawAxis(4) < -.15 | stick.getRawAxis(4) > .15) {
@@ -67,18 +79,11 @@ public class OI {
 			}
 			
 	}
-	public OI() {
-		B.whileHeld(new GyroCommand());
-		LB.whenPressed(new IntakeCommand());
-		RB.whileHeld(new OuttakeCommand());
-		Y.whenPressed(new GyroDataGenerator(1, 15));
-		A.whenPressed(new KickerRoutine());
-		Back.whileHeld(new MoveWincho());
-		X.whenPressed(new ResetCount());
+
+
 		
 
 
-	}
 	
 
 			
