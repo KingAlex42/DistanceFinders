@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ArmMove extends Command {
 boolean isDone;
+boolean startingState;
     public ArmMove() {
     	requires(Robot.armSubsystem);
         // Use requires() here to declare subsystem dependencies
@@ -17,17 +18,18 @@ boolean isDone;
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	startingState = Robot.armSubsystem.limitSwitch();
+    	setTimeout(2);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.armSubsystem.Motoring();
-    	isDone = true;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isDone;
+        return (startingState != Robot.armSubsystem.limitSwitch()) || isTimedOut();
     }
 
     // Called once after isFinished returns true

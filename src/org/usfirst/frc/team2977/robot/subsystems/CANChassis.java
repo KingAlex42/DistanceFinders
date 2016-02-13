@@ -118,10 +118,10 @@ public class CANChassis extends Subsystem {
        	//--Standard Drive--//
        	
         public void Drive (double movement, double rotate) {//Drive with manual value input
-          	m1.set(-(movement - rotate));
-           	m3.set(-(movement - rotate));
-        	m2.set(movement + rotate);
-        	m4.set(movement + rotate);
+          	m1.set(-(movement + rotate));
+           	m3.set(-(movement + rotate));
+        	m2.set(movement - rotate);
+        	m4.set(movement - rotate);
     		SmartDashboard.putNumber("Angle", GyroAngle());
     		getZ();
     		getX();

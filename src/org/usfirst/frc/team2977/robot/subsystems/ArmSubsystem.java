@@ -6,6 +6,7 @@ import org.usfirst.frc.team2977.robot.commands.ArmCommand;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
     
 /** 
  *	Created by Jerry & Jimmy 
@@ -14,15 +15,23 @@ public class ArmSubsystem extends Subsystem {
     
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	public Jaguar motor = new Jaguar(RobotMap.motor);
+	Jaguar motor = new Jaguar(RobotMap.arm);
 	DigitalInput arm1 = new DigitalInput(RobotMap.limit1);
-	public boolean limitBoolean;
+	boolean limit;
 	
-	public void Arming(){		
-		if (arm1.get() == true) {
+	
+	public void Arming(){	
+		limit = limitSwitch();
+		SmartDashboard.putBoolean("ArmCAM", limit);
+		if (limit) {
 			motor.set(0);
 		}
 	}
+	
+	public boolean limitSwitch() {
+		return !arm1.get();
+	}
+	
 	public void Motoring() {
 		motor.set(1); //sets motor to forward
 	}

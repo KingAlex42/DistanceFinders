@@ -21,12 +21,12 @@ boolean isDone;
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.armSubsystem.Arming();
-    	isDone = true;
+    	
     }	
     
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isDone;
+        return false;
     }
 
     // Called once after isFinished returns true

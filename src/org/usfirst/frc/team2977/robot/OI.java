@@ -39,12 +39,12 @@ public class OI {
 		LB.whenPressed(new IntakeCommand());
 		RB.whileHeld(new OuttakeCommand());
 		Y.whenPressed(new GyroDataGenerator(1, 15));
-		Back.whileHeld(new MoveWincho());
+		L3.whileHeld(new MoveWincho());
 		X.whenPressed(new ResetCount());
-		L3.whenPressed(new ArmMove());
-		L3.whenReleased(new ArmStop());
-		R3.whenPressed(new ArmBack());
-		R3.whenReleased(new ArmStop());
+		Start.whenPressed(new ArmMove());
+		Start.whenReleased(new ArmStop());
+		Back.whenPressed(new ArmBack());
+		Back.whenReleased(new ArmStop());
 
 	}
 	public double getLeftY() {
@@ -52,7 +52,7 @@ public class OI {
 			return -stick.getRawAxis(1);
 		}
 		else {
-		return 0;
+			return 0;
 		}
 	}
 	public double getRightY() { 
