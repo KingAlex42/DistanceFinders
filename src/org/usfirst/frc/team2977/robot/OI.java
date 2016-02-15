@@ -66,6 +66,26 @@ public class OI {
 			return 0;
 		}
 	}
+	
+	public double getLeftX() {
+		if (stick.getRawAxis(0) < -.15 | stick.getRawAxis(0)> .15){
+			return -stick.getRawAxis(0);
+		}
+		else {
+			return 0;
+		}
+	}
+	
+	
+	public double getLeftX2() {
+		if (stick2.getRawAxis(0) < -.15 | stick2.getRawAxis(0)> .15){
+			return -stick2.getRawAxis(0);
+		}
+		else {
+			return 0;
+		}
+	}
+	
 	public double getRightY() { 
 		if (stick.getRawAxis(5) < -.15 | stick.getRawAxis(5) > .15) {
 			return -stick.getRawAxis(5);			
