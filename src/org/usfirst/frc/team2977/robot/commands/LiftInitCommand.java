@@ -24,7 +24,7 @@ boolean isDone;
     protected void execute() {
     	isDone = true;
     	SmartDashboard.putBoolean("LimitSwitch", Robot.lifterSubsystem.isUp);
-    	
+    	Robot.lifterSubsystem.Up();
 		Robot.lifterSubsystem.Lift();
     }
 

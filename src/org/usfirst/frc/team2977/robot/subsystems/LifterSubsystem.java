@@ -4,21 +4,22 @@ import org.usfirst.frc.team2977.robot.Robot;
 import org.usfirst.frc.team2977.robot.commands.LiftInitCommand;
 
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
  */
 public class LifterSubsystem extends Subsystem {
-	 Relay lifterMotor = new Relay(4);
+	 	Victor lifterMotor = new Victor (4);
 	    DigitalInput lift = new DigitalInput(4);
 	    public boolean isUp;
-	    Timer time = new Timer(); 
+	    Timer time = new Timer();
+	   
 	   
 	    public void Off() {								//spike stops
-	     	lifterMotor.set(Relay.Value.kOff);
+	     	lifterMotor.set(0);
 	    }
 	   
 	 
@@ -40,21 +41,21 @@ public class LifterSubsystem extends Subsystem {
 	    }
 	    
 	    public void LiftDown() {
-	    	lifterMotor.set(Relay.Value.kReverse);
-	    	lifterMotor.setExpiration(TimerValue());
+	    	lifterMotor.set(-1);
+	//    	lifterMotor.setExpiration(TimerValue());
 	    		}
 	    	
 	    public void LiftUp() {
-	    	lifterMotor.set(Relay.Value.kForward);
-	    	TimerValue();
+	    	lifterMotor.set(1);;
+//	    	TimerValue();
 	    }
 	   
 	    public void Lift() {
-	       	if (Robot.lifterSubsystem.Up() == true) {
-	       		lifterMotor.set(Relay.Value.kOff);
+	       	if (Robot.lifterSubsystem.isUp == true) {
+	       		lifterMotor.set(0);;
 	    	}
-	    	else if (Robot.lifterSubsystem.Up() == false) {
-	        	lifterMotor.set(Relay.Value.kForward);
+	    	else if (Robot.lifterSubsystem.isUp == false) {
+	        	lifterMotor.set(1);;
 	        	TimerValue();
 	        	
 	    	}

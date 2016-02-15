@@ -1,7 +1,6 @@
 package org.usfirst.frc.team2977.robot.subsystems;
 
 import org.usfirst.frc.team2977.robot.RobotMap;
-import org.usfirst.frc.team2977.robot.commands.INITCommand;
 //import org.usfirst.frc.team2977.robot.commands.IntakeCommand;
 import org.usfirst.frc.team2977.robot.commands.StopOuttake;
 
@@ -17,8 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class IOSubsystem extends Subsystem {
 	boolean intaked;
 	final static double intakeSpeed = 1;
-	
-    Talon intaker = new Talon (RobotMap.intaker);
+	Talon intaker = new Talon (RobotMap.intaker);
     DigitalInput intakeLimit = new DigitalInput(RobotMap.intakeLimit);
     
     public void INIT() {
