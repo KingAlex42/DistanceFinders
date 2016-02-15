@@ -10,10 +10,11 @@ public class RobotMap {
 	public static int m1 = 2;	//front right
 	public static int m2 = 4;	//front left	
 	public static int m3 = 3;	//back right
-	public static int m4 = 1;	//back left
+	public static int m4 = 1;	//back left	
+	public static int winch = 5;
 
 	//PWM
-	public static int winch = 5;
+
 	public static int intaker = 0;
 	public static int arm = 1;
 	public static int kickerA = 2;
@@ -25,18 +26,21 @@ public class RobotMap {
 	public static int intakeLimit = 1;
 	public static int winchLimit = 0;
 	public static int kickerSwitch = 2;  
-	public static int limit1 = 3;
+	public static int armSwitch = 3;
+	public static int climber =4;
 
 	
 	//Analog
 	public static int gyro = 0;
+	public static int leftRange = 1;
+	public static int rightRange = 2;
 	
 
 
 	
 	//Constants
 	public static int gyroCoefficient = 42;
-	public static double kickerMaxSpeed = .68;  //max speed for the kicker
+	public static double kickerMaxSpeed = .68;  //max speed for the kicker  .1:1
 
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
