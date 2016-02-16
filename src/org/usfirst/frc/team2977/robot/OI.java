@@ -11,7 +11,6 @@ import org.usfirst.frc.team2977.robot.commands.GyroCommand;
 import org.usfirst.frc.team2977.robot.commands.IntakeCommand;
 import org.usfirst.frc.team2977.robot.commands.KickerRoutine;
 import org.usfirst.frc.team2977.robot.commands.OuttakeCommand;
-import org.usfirst.frc.team2977.robot.commands.Shoot;
 import org.usfirst.frc.team2977.robot.commands.MoveWincho;
 import org.usfirst.frc.team2977.robot.commands.ResetCount;
 import org.usfirst.frc.team2977.robot.commands.GyroDataGenerator;

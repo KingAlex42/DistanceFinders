@@ -3,6 +3,7 @@ package org.usfirst.frc.team2977.robot.commands;
 import org.usfirst.frc.team2977.robot.Robot;
 import org.usfirst.frc.team2977.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -15,11 +16,14 @@ public class Shoot extends Command {
 	boolean isDone;		// has the kicker passed the limit switch for the last time
 	boolean finalOscillation;  //is this the last time the kicker code needs to run
 	double currentSpeed;  //current speed the kicker is running at
+	double voltage;
 
     public Shoot() {
-    	requires(Robot.kicker);
+    	requires(Robot.kicker);   //FIXME Make sure some of this stuff runs everytime the button is pressed
     	setTimeout(.25);
-    	currentSpeed = RobotMap.kickerMaxSpeed;
+    	voltage = DriverStation.getInstance().getBatteryVoltage();
+    	currentSpeed = RobotMap.kickerMaxSpeed + ((12.7 - voltage)/10);
+    	SmartDashboard.putNumber("BatteryVoltage", voltage);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
