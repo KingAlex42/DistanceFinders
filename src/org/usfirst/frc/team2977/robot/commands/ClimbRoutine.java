@@ -9,7 +9,7 @@ public class ClimbRoutine extends CommandGroup {
     
     public  ClimbRoutine() {
     	addSequential(new LifterCommand());
-    	addSequential(new LiftDownCommand());
+    	addSequential(new LiftDownCommand(false));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

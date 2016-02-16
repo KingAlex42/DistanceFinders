@@ -30,6 +30,7 @@ public class GyroDataGenerator extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	timer.reset();
     	timer.start();
     	gyroValue[0] = Robot.chassis.GyroAngle();  //Gets the initial reading of the gyro
     }
@@ -59,6 +60,7 @@ public class GyroDataGenerator extends Command {
     	}
     	System.out.println("GyroTableGenerated");
     	timer.stop();
+    	
     }
 
     // Called when another command which requires one or more of the same

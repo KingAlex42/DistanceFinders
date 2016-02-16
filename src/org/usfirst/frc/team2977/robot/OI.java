@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team2977.robot.commands.ArmBack;
 import org.usfirst.frc.team2977.robot.commands.ArmMove;
 import org.usfirst.frc.team2977.robot.commands.ArmStop;
+import org.usfirst.frc.team2977.robot.commands.ClimbRoutine;
 import org.usfirst.frc.team2977.robot.commands.GyroCommand;
 import org.usfirst.frc.team2977.robot.commands.IntakeCommand;
 import org.usfirst.frc.team2977.robot.commands.LiftDownCommand;
@@ -39,6 +40,7 @@ public class OI {
 	Button R3 = new JoystickButton(stick, 10);
 	Button Y2 = new JoystickButton(stick2, 4);
 	Button B2 = new JoystickButton(stick2, 5);
+	Button A2 = new JoystickButton(stick2, 1);
 
 	public OI() {
 		B.whileHeld(new GyroCommand());
@@ -53,8 +55,9 @@ public class OI {
 		Back.whenReleased(new ArmStop());
 		Y2.whenPressed(new LifterCommand());
 		Y2.whenReleased(new LiftStop());
-		B2.whenPressed(new LiftDownCommand());
+		B2.whenPressed(new LiftDownCommand(true));
 		B2.whenReleased(new LiftStop());
+		A2.whenPressed(new ClimbRoutine());
 
 
 	}

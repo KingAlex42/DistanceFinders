@@ -10,8 +10,9 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class LiftDownCommand extends Command {
     	Timer timer = new Timer();
-    public LiftDownCommand() {
-
+    	boolean isManual;
+    public LiftDownCommand(boolean manualControl) {
+    	isManual = manualControl;
     	requires(Robot.lifterSubsystem);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -29,11 +30,12 @@ public class LiftDownCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return timer.get() >= (Robot.lifterSubsystem.markedTime() - 1);
+        return (timer.get() >= (Robot.lifterSubsystem.markedTime() - 1) && !isManual);
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.lifterSubsystem.Off();
     }
 
     // Called when another command which requires one or more of the same
