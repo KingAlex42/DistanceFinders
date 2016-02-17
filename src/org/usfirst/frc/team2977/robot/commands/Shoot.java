@@ -23,7 +23,7 @@ public class Shoot extends Command {
     	setTimeout(.25);
     	voltage = DriverStation.getInstance().getBatteryVoltage();
     	currentSpeed = RobotMap.kickerMaxSpeed + ((12.7 - voltage)/10);
-    	SmartDashboard.putNumber("BatteryVoltage", voltage);
+
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -36,8 +36,14 @@ public class Shoot extends Command {
     }
 
     // Called repeatedly when this Command is scheduled to run
+    boolean hasRun = false;
     protected void execute() {
-    	Robot.kicker.forward(currentSpeed);
+    	if(!hasRun) {
+       	currentSpeed = RobotMap.kickerMaxSpeed + ((12.7 - voltage)/10);
+    	SmartDashboard.putNumber("BatteryVoltage", voltage);
+       	Robot.kicker.forward(currentSpeed); 
+    	hasRun = true;
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -48,6 +54,7 @@ public class Shoot extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.kicker.stop(); 
+    	hasRun = false;
 
     	}
     

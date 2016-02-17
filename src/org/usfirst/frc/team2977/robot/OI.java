@@ -43,11 +43,11 @@ public class OI {
 		Y.whenPressed(new GyroDataGenerator(1, 15));
 		L3.whileHeld(new MoveWincho());
 		X.whenPressed(new ResetCount());
-		A.whenPressed(new KickerRoutine());
+		A.whenPressed(new KickerRoutine());	//TODO add a driver override to stop shooter
 		Start.whenPressed(new ArmMove());
 		Start.whenReleased(new ArmStop());
 		Back.whenPressed(new ArmBack());
-		Back.whenReleased(new ArmStop());
+		Back.whenReleased(new ArmStop());  
 
 	}
 	public double getLeftY() {

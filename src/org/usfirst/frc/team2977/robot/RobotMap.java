@@ -28,6 +28,8 @@ public class RobotMap {
 	public static int kickerSwitch = 2;  
 	public static int armSwitch = 3;
 	public static int climber =4;
+	public static int armA = 5;
+	public static int armB = 6;
 
 	
 	//Analog

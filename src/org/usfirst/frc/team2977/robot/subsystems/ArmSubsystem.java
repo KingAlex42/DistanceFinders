@@ -4,6 +4,7 @@ import org.usfirst.frc.team2977.robot.RobotMap;
 import org.usfirst.frc.team2977.robot.commands.ArmCommand;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -18,7 +19,22 @@ public class ArmSubsystem extends Subsystem {
 	Jaguar motor = new Jaguar(RobotMap.arm);
 	DigitalInput arm1 = new DigitalInput(RobotMap.armSwitch);
 	boolean limit;
+	Encoder armEncoder = new Encoder(RobotMap.armA, RobotMap.armB);
 	
+
+	public int encoderCount() {
+		int encoderCount = armEncoder.get();
+		
+		SmartDashboard.putNumber("EncoderCount", encoderCount);
+		return encoderCount;
+		
+	}
+	
+	public double encoderDistance() {
+		double encoderDistance = armEncoder.getDistance();
+		SmartDashboard.putNumber("EncoderDistance", encoderDistance);
+		return encoderDistance;
+	}
 	
 	public void Arming(){	
 		limit = limitSwitch();
@@ -27,6 +43,7 @@ public class ArmSubsystem extends Subsystem {
 			motor.set(0);
 		}
 	}
+	
 	
 	public boolean limitSwitch() {
 		return !arm1.get();
