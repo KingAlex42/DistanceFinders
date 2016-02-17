@@ -10,11 +10,13 @@ import edu.wpi.first.wpilibj.command.Command;
 public class GyroCommand extends Command {
 	boolean isAuto;
 	double angle;
+	double threshold;
 
     public GyroCommand() { //For Tele-op
     	requires(Robot.chassis);
     	isAuto = false;
     	angle = 0;
+    	threshold = 0;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -23,6 +25,15 @@ public class GyroCommand extends Command {
     	isAuto = true;
     	setTimeout(duration);
     	angle = turnAngle;
+    	threshold = 0;
+    }
+   
+    public GyroCommand(double duration, double turnAngle, double rangeThreshold) { //For autonomous
+    	requires(Robot.chassis);
+    	isAuto = true;
+    	setTimeout(duration);
+    	angle = turnAngle;
+    	threshold = rangeThreshold;
     }
 
     // Called just before this Command runs the first time
@@ -39,7 +50,7 @@ public class GyroCommand extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	if(isAuto) {
-    		return isTimedOut();
+    		return isTimedOut() || (threshold >= Robot.chassis.leftDistance() && threshold != 0);
     	}
         return false;
     }

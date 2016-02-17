@@ -14,6 +14,10 @@ public class OuttakeCommand extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
+    
+    public OuttakeCommand(double duration) {
+    	setTimeout(duration);
+    }
 
     // Called just before this Command runs the first time
     protected void initialize() {
@@ -26,7 +30,7 @@ public class OuttakeCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true

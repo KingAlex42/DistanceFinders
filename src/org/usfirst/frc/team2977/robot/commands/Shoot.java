@@ -31,8 +31,7 @@ public class Shoot extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	SmartDashboard.putNumber("CurrentSpeed", currentSpeed);
-    	/* since the code is meant to oscillate back to try and get as close to the switch as possible, the negative value
-    	 * is meant to make sure the kicker always ends before or on the limitswitch   */
+
     }
 
     // Called repeatedly when this Command is scheduled to run

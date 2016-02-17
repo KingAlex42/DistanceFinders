@@ -4,6 +4,7 @@ import org.usfirst.frc.team2977.robot.RobotMap;
 import org.usfirst.frc.team2977.robot.commands.DriveCommand;
 
 import edu.wpi.first.wpilibj.AnalogGyro;
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -19,7 +20,9 @@ public class CANChassis extends Subsystem {
 	CANTalon m2 = new CANTalon(RobotMap.m2);  //front Left
 	CANTalon m3 = new CANTalon(RobotMap.m3);  //back Right
 	CANTalon m4 = new CANTalon(RobotMap.m4);  //back Left
-	AnalogGyro gyro = new AnalogGyro(1); 
+	AnalogGyro gyro = new AnalogGyro(RobotMap.gyro);
+	AnalogInput leftRangeFinder = new AnalogInput(RobotMap.leftRange);
+	AnalogInput rightRangeFinder = new AnalogInput(RobotMap.rightRange);
 	Accelerometer accel = new BuiltInAccelerometer();
 	double accelX;
 	double accelY;
@@ -28,6 +31,8 @@ public class CANChassis extends Subsystem {
 	double angle; // not degrees	
 	double constant = .25; //motor speed
 	double factor = .75; 
+	double rightRange;
+	double leftRange;
 	
 	public CANChassis() {
 		m1.enableControl();
@@ -123,10 +128,29 @@ public class CANChassis extends Subsystem {
         	m2.set(movement - rotate);
         	m4.set(movement - rotate);
     		SmartDashboard.putNumber("Angle", GyroAngle());
+    		SmartDashboard.putNumber("LeftRangeFinder", leftRanger());
     		getZ();
     		getX();
     		getY();
         }
+        
+    //----------------------------------------------------------------------//
+        //--RangeFinders--//
+        public double leftRanger() { //in voltage
+        	leftRange = leftRangeFinder.getVoltage();
+        	SmartDashboard.putNumber("LeftRangeFinder", leftRange);
+        	return leftRange;
+        }
+        
+        double leftDistanceInches;
+       
+        public double leftDistance() {//in inches
+        	leftDistanceInches = leftRanger() * RobotMap.leftRangeC;
+        	SmartDashboard.putNumber("LeftInches", leftDistanceInches);
+        	return leftDistanceInches;
+        }
+        
+        
 
 
     public void initDefaultCommand() {
