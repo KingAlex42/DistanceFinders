@@ -21,8 +21,7 @@ public class Shoot extends Command {
     public Shoot() {
     	requires(Robot.kicker);   //FIXME Make sure some of this stuff runs everytime the button is pressed
     	setTimeout(.25);
-    	voltage = DriverStation.getInstance().getBatteryVoltage();
-    	currentSpeed = RobotMap.kickerMaxSpeed + ((12.7 - voltage)/10);
+
 
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -30,7 +29,6 @@ public class Shoot extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	SmartDashboard.putNumber("CurrentSpeed", currentSpeed);
     	/* since the code is meant to oscillate back to try and get as close to the switch as possible, the negative value
     	 * is meant to make sure the kicker always ends before or on the limitswitch   */
     }
@@ -39,8 +37,10 @@ public class Shoot extends Command {
     boolean hasRun = false;
     protected void execute() {
     	if(!hasRun) {
+        voltage = DriverStation.getInstance().getBatteryVoltage();
        	currentSpeed = RobotMap.kickerMaxSpeed + ((12.7 - voltage)/10);
     	SmartDashboard.putNumber("BatteryVoltage", voltage);
+    	SmartDashboard.putNumber("CurrentSpeed", currentSpeed);
        	Robot.kicker.forward(currentSpeed); 
     	hasRun = true;
     	}

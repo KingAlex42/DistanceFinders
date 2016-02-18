@@ -19,7 +19,7 @@ boolean startingState;
     // Called just before this Command runs the first time
     protected void initialize() {
     	startingState = Robot.armSubsystem.limitSwitch();
-    	setTimeout(2);
+    //	setTimeout(2);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -29,7 +29,7 @@ boolean startingState;
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (startingState != Robot.armSubsystem.limitSwitch()) || isTimedOut();
+        return (startingState != Robot.armSubsystem.limitSwitch()) /* || isTimedOut() */;
     }
 
     // Called once after isFinished returns true

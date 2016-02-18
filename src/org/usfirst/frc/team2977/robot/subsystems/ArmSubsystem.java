@@ -18,7 +18,6 @@ public class ArmSubsystem extends Subsystem {
     // here. Call these from Commands.
 	Jaguar motor = new Jaguar(RobotMap.arm);
 	DigitalInput arm1 = new DigitalInput(RobotMap.armSwitch);
-	boolean limit;
 	Encoder armEncoder = new Encoder(RobotMap.armA, RobotMap.armB);
 	
 
@@ -36,24 +35,30 @@ public class ArmSubsystem extends Subsystem {
 		return encoderDistance;
 	}
 	
-	public void Arming(){	
-		limit = limitSwitch();
-		SmartDashboard.putBoolean("ArmCAM", limit);
-		if (limit) {
-			motor.set(0);
+	public void isZeroed(){	 
+		if (limitSwitch()) {
+			armEncoder.reset();
 		}
+	}
+	
+	public void printEncoder() {
+		encoderDistance();
+		encoderCount();
 	}
 	
 	
 	public boolean limitSwitch() {
-		return !arm1.get();
+		boolean limit = !arm1.get();
+		SmartDashboard.putBoolean("ArmCAM", limit);
+		return limit;
 	}
 	
 	public void Motoring() {
-		motor.set(1); //sets motor to forward
+		motor.set(RobotMap.armPower); //sets motor to forward
+		printEncoder();
 	}
 	public void ArmBack() {
-		motor.set(-1); //sets motor to backward
+		motor.set(-RobotMap.armPower); //sets motor to backward
 	}
 	public void ArmStop() {
 		motor.set(0);
