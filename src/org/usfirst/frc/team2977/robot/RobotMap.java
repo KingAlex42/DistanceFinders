@@ -37,8 +37,6 @@ public class RobotMap {
 	public static int leftRange = 1;
 	public static int rightRange = 2;
 	
-
-
 	
 	//Constants
 	public static int gyroCoefficient = 42;

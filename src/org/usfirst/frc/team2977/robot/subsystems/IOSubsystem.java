@@ -1,7 +1,6 @@
 package org.usfirst.frc.team2977.robot.subsystems;
 
 import org.usfirst.frc.team2977.robot.RobotMap;
-import org.usfirst.frc.team2977.robot.commands.INITCommand;
 //import org.usfirst.frc.team2977.robot.commands.IntakeCommand;
 import org.usfirst.frc.team2977.robot.commands.StopOuttake;
 
