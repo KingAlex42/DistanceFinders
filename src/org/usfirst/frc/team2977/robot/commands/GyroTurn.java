@@ -11,7 +11,7 @@ public class GyroTurn extends Command {
 	double startingAngle; //where we started
 	double currentAngle;  //where we are at
 	double turnAngle;  //How much we want it to turn
-	double constant = .5;  //default motor speed
+	double constant = .25;  //default motor speed
 	double speed;
 	double thresholdBounds = 1;  //Actual turn must be within the turn angle +- this
 	
