@@ -29,7 +29,7 @@ public class CANChassis extends Subsystem {
 	double accelZ;
 	double adjust;  
 	double angle; // not degrees	
-	double constant = .25; //motor speed
+	double constant = .75; //motor speed
 	double factor = .75; 
 	double rightRange;
 	double leftRange;

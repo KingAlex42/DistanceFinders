@@ -7,7 +7,12 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team2977.robot.commands.Shoot;
-import org.usfirst.frc.team2977.robot.commands.StandardAuto;
+import org.usfirst.frc.team2977.robot.commands.Auto1;
+import org.usfirst.frc.team2977.robot.commands.Auto2;
+import org.usfirst.frc.team2977.robot.commands.Auto3;
+import org.usfirst.frc.team2977.robot.commands.Auto4;
+import org.usfirst.frc.team2977.robot.commands.Auto5;
+import org.usfirst.frc.team2977.robot.commands.Auto6;
 import org.usfirst.frc.team2977.robot.subsystems.CANChassis;
 import org.usfirst.frc.team2977.robot.subsystems.ArmSubsystem;
 import org.usfirst.frc.team2977.robot.subsystems.Chassis;
@@ -45,7 +50,12 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new StandardAuto());
+        chooser.addDefault("Default Auto", new Auto1());
+        chooser.addObject("Position 2", new Auto2());
+        chooser.addObject("Position 3", new Auto3());
+        chooser.addObject("Position 4", new Auto4());
+        chooser.addObject("Position 5", new Auto5());
+        chooser.addObject("Position 6", new Auto6());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
     }
