@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *	Shoots for the High Goal then turns around to reach and breach a defense
+ *	This Command is meant for when there is a Terrain Barrier in the 4th Defense Slot
  */
 public class Auto6 extends CommandGroup {
 		Timer autoTimer = new Timer();
@@ -13,6 +14,8 @@ public class Auto6 extends CommandGroup {
     	addSequential(new Shoot());
     	addParallel(new RunKicker());
     	addSequential(new GyroTurn(42));
+    	addSequential(new GyroCommand(5,0));  //Needs to be tuned
+    	addSequential(new GyroTurn(-42));
     	addSequential(new GyroCommand(5,0));
         // Add Commands here:
         // e.g. addSequential(new Command1());

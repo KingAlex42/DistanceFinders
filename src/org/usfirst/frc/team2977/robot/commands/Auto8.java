@@ -4,20 +4,18 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *	Moves through the third defense to the right of the low bar and shoots for the low Goal
+ *	Shoots for the High Goal then turns around to reach and breach a defense
+ *	This Command is meant for when there is a Terrain Barrier in the 2nd Defense Slot
  */
-public class Auto4 extends CommandGroup {
+public class Auto8 extends CommandGroup {
 		Timer autoTimer = new Timer();
-    public  Auto4() {
+    public  Auto8() {
     	autoTimer.start();
-    	addSequential(new GyroCommand(5, 0));
-    	addSequential(new GyroTurn(21));
-    	addSequential(new GyroCommand(20, 0, 60));
-    	addSequential(new GyroTurn(-21));
-    	addSequential(new GyroCommand(20,0,55));
-    	addSequential(new GyroTurn(-10.5));
-    	addSequential(new GyroCommand(2, 0));
-    	addSequential(new OuttakeCommand(2));
+    	addSequential(new Shoot());
+    	addParallel(new RunKicker());
+    	addSequential(new GyroTurn(15));
+    	addSequential(new GyroCommand(5,0));
+    	addSequential(new GyroTurn(-42));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

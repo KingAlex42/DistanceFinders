@@ -13,8 +13,10 @@ public class Auto3 extends CommandGroup {
     	addSequential(new GyroCommand(5, 0));
     	addSequential(new GyroTurn(21));
     	addSequential(new GyroCommand(20, 0, 60));
-    	addSequential(new GyroTurn(-31.5));
-    	addSequential(new GyroCommand(4,0));
+    	addSequential(new GyroTurn(-21));
+    	addSequential(new GyroCommand(20,0,55));
+    	addSequential(new GyroTurn(-10.5));
+    	addSequential(new GyroCommand(2, 0));
     	addSequential(new OuttakeCommand(2));
         // Add Commands here:
         // e.g. addSequential(new Command1());
