@@ -1,17 +1,20 @@
 package org.usfirst.frc.team2977.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *	Goes through the low bar and shoots for the low goal.  Possibility: Shoot at high goal?
  */
 public class Auto1 extends CommandGroup {
+	Timer autoTimer = new Timer();
     
     public  Auto1() {
+    	autoTimer.start();
     	addSequential(new GyroCommand(5, 0));
-    	addSequential(new GyroCommand(20, 0, 30));
-    	addSequential(new GyroTurn(-21));
-    	addSequential(new GyroCommand(2, 0));
+    	addSequential(new GyroCommand(20, 0, 50));
+    	addSequential(new GyroTurn(-10.5));
+    	addSequential(new GyroCommand(4, 0));
     	addSequential(new OuttakeCommand(2));
         // Add Commands here:
         // e.g. addSequential(new Command1());

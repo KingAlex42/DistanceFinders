@@ -51,7 +51,7 @@ public class GyroCommand extends Command {
     protected boolean isFinished() {
     	if(isAuto) {
     		return isTimedOut() || (threshold >= Robot.chassis.leftDistance() && threshold != 0);
-    	}
+   	}
         return false;
     }
 

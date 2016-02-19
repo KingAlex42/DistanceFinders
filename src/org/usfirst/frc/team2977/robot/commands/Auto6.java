@@ -1,13 +1,19 @@
 package org.usfirst.frc.team2977.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *	Shoots for the High Goal then turns around to reach and breach a defense
  */
 public class Auto6 extends CommandGroup {
-    
+		Timer autoTimer = new Timer();
     public  Auto6() {
+    	autoTimer.start();
+    	addSequential(new Shoot());
+    	addParallel(new RunKicker());
+    	addSequential(new GyroTurn(42));
+    	addSequential(new GyroCommand(5,0));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

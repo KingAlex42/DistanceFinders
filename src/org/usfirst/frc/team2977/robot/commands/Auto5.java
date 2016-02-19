@@ -1,13 +1,20 @@
 package org.usfirst.frc.team2977.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *	Moves through the fourth defense to the right of the low bar and shoots in the low goal
  */
 public class Auto5 extends CommandGroup {
-    
+		Timer autoTimer = new Timer();
     public  Auto5() {
+    	autoTimer.start();
+    	addSequential(new GyroCommand(5, 0));
+    	addSequential(new GyroCommand(20, 0, 30));
+    	addSequential(new GyroTurn(10.5));
+    	addSequential(new GyroCommand(2, 0));
+    	addSequential(new OuttakeCommand(2));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
