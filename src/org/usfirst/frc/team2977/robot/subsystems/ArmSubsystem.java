@@ -1,7 +1,7 @@
 package org.usfirst.frc.team2977.robot.subsystems;
     
 import org.usfirst.frc.team2977.robot.RobotMap;
-import org.usfirst.frc.team2977.robot.commands.ArmCommand;
+import org.usfirst.frc.team2977.robot.commands.ArmZero;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
@@ -35,10 +35,13 @@ public class ArmSubsystem extends Subsystem {
 		return encoderDistance;
 	}
 	
-	public void isZeroed(){	 
+	public boolean isZeroed(){	 
 		if (limitSwitch()) {
 			armEncoder.reset();
+			return true;
 		}
+		return false;
+
 	}
 	
 	public void printEncoder() {
@@ -53,18 +56,23 @@ public class ArmSubsystem extends Subsystem {
 		return limit;
 	}
 	
+	public void lift() {
+		motor.set(RobotMap.armMaxPower);
+	}
+	
 	public void Motoring() {
 		motor.set(RobotMap.armPower); //sets motor to forward
 		printEncoder();
 	}
 	public void ArmBack() {
 		motor.set(-RobotMap.armPower); //sets motor to backward
+		printEncoder();
 	}
 	public void ArmStop() {
 		motor.set(0);
 	}
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new ArmCommand()); 
+        setDefaultCommand(new ArmZero()); 
     }
 }   

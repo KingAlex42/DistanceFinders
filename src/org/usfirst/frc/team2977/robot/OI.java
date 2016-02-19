@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team2977.robot.commands.ArmBack;
+import org.usfirst.frc.team2977.robot.commands.ArmLift;
 import org.usfirst.frc.team2977.robot.commands.ArmMove;
 import org.usfirst.frc.team2977.robot.commands.ArmStop;
 import org.usfirst.frc.team2977.robot.commands.GyroCommand;
@@ -24,6 +25,7 @@ import org.usfirst.frc.team2977.robot.commands.GyroDataGenerator;
 public class OI {
 	
 	Joystick stick = new Joystick(1);
+	Joystick stick2 = new Joystick(2);
 	Button A = new JoystickButton(stick, 1);
 	Button B = new JoystickButton(stick, 2);
 	Button X = new JoystickButton(stick, 3);
@@ -34,6 +36,8 @@ public class OI {
 	Button Start = new JoystickButton(stick, 8);
 	Button L3 = new JoystickButton(stick, 9);
 	Button R3 = new JoystickButton(stick, 10);
+	Button Trigger2 = new JoystickButton(stick2, 1);
+	Button Butt3 = new JoystickButton(stick2, 3);
 	Command kickerCommand;
 
 	public OI() {
@@ -48,6 +52,8 @@ public class OI {
 		Start.whenReleased(new ArmStop());
 		Back.whenPressed(new ArmBack());
 		Back.whenReleased(new ArmStop());  
+		Trigger2.whenPressed(new ArmLift());
+		
 
 	}
 	public double getLeftY() {
