@@ -23,7 +23,6 @@ public class ArmSubsystem extends Subsystem {
 
 	public int encoderCount() {
 		int encoderCount = armEncoder.get();
-		
 		SmartDashboard.putNumber("EncoderCount", encoderCount);
 		return encoderCount;
 		
@@ -51,8 +50,8 @@ public class ArmSubsystem extends Subsystem {
 	
 	
 	public boolean limitSwitch() {
-		boolean limit = !arm1.get();
-		SmartDashboard.putBoolean("ArmCAM", limit);
+		boolean limit = arm1.get();
+		SmartDashboard.putBoolean("ArmSwitch", limit);
 		return limit;
 	}
 	
@@ -73,6 +72,5 @@ public class ArmSubsystem extends Subsystem {
 	}
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new ArmZero()); 
     }
 }   

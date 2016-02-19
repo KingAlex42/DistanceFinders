@@ -53,6 +53,7 @@ public class OI {
 		Back.whenPressed(new ArmBack());
 		Back.whenReleased(new ArmStop());  
 		Trigger2.whenPressed(new ArmLift());
+		Trigger2.whenReleased(new ArmStop());
 		
 
 	}
