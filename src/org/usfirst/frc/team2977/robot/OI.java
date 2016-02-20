@@ -52,7 +52,7 @@ public class OI {
 		Y.whenPressed(new GyroDataGenerator(1, 15));
 		X2.whileHeld(new MoveWincho());
 		X.whenPressed(new ResetCount());
-		A.whenPressed(new KickerRoutine());
+		A.whenPressed(new KickerRoutine());	//TODO add a driver override to stop shooter
 		Start.whenPressed(new ArmMove());
 		Start.whenReleased(new ArmStop());
 		Back.whenPressed(new ArmBack());
@@ -62,6 +62,8 @@ public class OI {
 		B2.whenPressed(new LiftDownCommand(true));
 		B2.whenReleased(new LiftStop());
 		A2.whenPressed(new ClimbRoutine());
+
+
 
 
 	}

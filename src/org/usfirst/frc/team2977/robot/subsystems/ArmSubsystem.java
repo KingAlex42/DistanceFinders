@@ -4,6 +4,7 @@ import org.usfirst.frc.team2977.robot.RobotMap;
 import org.usfirst.frc.team2977.robot.commands.ArmCommand;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -17,26 +18,47 @@ public class ArmSubsystem extends Subsystem {
     // here. Call these from Commands.
 	Jaguar motor = new Jaguar(RobotMap.arm);
 	DigitalInput arm1 = new DigitalInput(RobotMap.armSwitch);
-	boolean limit;
+	Encoder armEncoder = new Encoder(RobotMap.armA, RobotMap.armB);
 	
+
+	public int encoderCount() {
+		int encoderCount = armEncoder.get();
+		
+		SmartDashboard.putNumber("EncoderCount", encoderCount);
+		return encoderCount;
+		
+	}
 	
-	public void Arming(){	
-		limit = limitSwitch();
-		SmartDashboard.putBoolean("ArmCAM", limit);
-		if (limit) {
-			motor.set(0);
+	public double encoderDistance() {
+		double encoderDistance = armEncoder.getDistance();
+		SmartDashboard.putNumber("EncoderDistance", encoderDistance);
+		return encoderDistance;
+	}
+	
+	public void isZeroed(){	 
+		if (limitSwitch()) {
+			armEncoder.reset();
 		}
 	}
 	
+	public void printEncoder() {
+		encoderDistance();
+		encoderCount();
+	}
+	
+	
 	public boolean limitSwitch() {
-		return !arm1.get();
+		boolean limit = !arm1.get();
+		SmartDashboard.putBoolean("ArmCAM", limit);
+		return limit;
 	}
 	
 	public void Motoring() {
-		motor.set(1); //sets motor to forward
+		motor.set(RobotMap.armPower); //sets motor to forward
+		printEncoder();
 	}
 	public void ArmBack() {
-		motor.set(-1); //sets motor to backward
+		motor.set(-RobotMap.armPower); //sets motor to backward
 	}
 	public void ArmStop() {
 		motor.set(0);

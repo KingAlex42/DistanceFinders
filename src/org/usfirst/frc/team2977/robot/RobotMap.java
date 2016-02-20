@@ -30,6 +30,9 @@ public class RobotMap {
 	public static int kickerSwitch = 2;  
 	public static int armSwitch = 3;
 
+	public static int armA = 5;
+	public static int armB = 6;
+
 	
 	//Analog
 	public static int gyro = 0;
@@ -43,6 +46,7 @@ public class RobotMap {
 	public static int gyroCoefficient = 42;
 	public static double kickerMaxSpeed = .65;  //max speed for the kicker  .1:1
 	public static double leftRangeC = 109;
+	public static double armPower = .33;
 
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
