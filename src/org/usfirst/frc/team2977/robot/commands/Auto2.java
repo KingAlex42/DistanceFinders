@@ -10,10 +10,10 @@ public class Auto2 extends CommandGroup {
 		Timer autoTimer = new Timer();
     public  Auto2() {
     	autoTimer.start();
-    	addSequential(new GyroCommand(5, 0));
-    	addSequential(new GyroCommand(20, 0, 55));
-    	addSequential(new GyroTurn(-10.5));
-    	addSequential(new GyroCommand(2, 0));
+    	addSequential(new SlowGyroCommand(5, 0));
+    	addSequential(new GyroCommand(20, 0, 63));
+    	addSequential(new GyroTurn(-14));
+    	addSequential(new SlowGyroCommand(1, 0));
     	addSequential(new OuttakeCommand(2));
         // Add Commands here:
         // e.g. addSequential(new Command1());

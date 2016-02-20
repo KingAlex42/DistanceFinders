@@ -14,9 +14,9 @@ public class Auto6 extends CommandGroup {
     	addSequential(new Shoot());
     	addParallel(new RunKicker());
     	addSequential(new GyroTurn(42));
-    	addSequential(new GyroCommand(5,0));  //Needs to be tuned
+    	addSequential(new SlowGyroCommand(2,0));  //Needs to be tuned
     	addSequential(new GyroTurn(-42));
-    	addSequential(new GyroCommand(5,0));
+    	addSequential(new SlowGyroCommand(5,0));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
