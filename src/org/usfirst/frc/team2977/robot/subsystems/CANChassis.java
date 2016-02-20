@@ -29,10 +29,10 @@ public class CANChassis extends Subsystem {
 	double accelZ;
 	double adjust;  
 	double angle; // not degrees	
-	double constant = .75; //motor speed
 	double factor = .75; 
 	double rightRange;
 	double leftRange;
+	
 	
 	public CANChassis() {
 		m1.enableControl();
@@ -73,9 +73,10 @@ public class CANChassis extends Subsystem {
 			gyro.reset();
 			SmartDashboard.putBoolean("Resetted", true);
 	  }
-	    
-    public void GyroDrive(double turnAngle) {   //Drives straight using feedback from a gyro
-		getX();
+	    double constant;
+    public void GyroDrive(double turnAngle, double constantS) {   //Drives straight using feedback from a gyro
+		constant = constantS;
+    	getX();
 		getY();
 		getZ();
     	angle = gyro.getAngle();

@@ -7,13 +7,13 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class GyroCommand extends Command {
+public class SlowGyroCommand extends Command {
 	boolean isAuto;
 	double angle;
 	double threshold;
-	double speed = .75;
+	double speed = .5;
 
-    public GyroCommand() { //For Tele-op
+    public SlowGyroCommand() { //For Tele-op
     	requires(Robot.chassis);
     	isAuto = false;
     	angle = 0;
@@ -21,7 +21,7 @@ public class GyroCommand extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
-    public GyroCommand(double duration, double turnAngle) { //For autonomous
+    public SlowGyroCommand(double duration, double turnAngle) { //For autonomous
     	requires(Robot.chassis);
     	isAuto = true;
     	setTimeout(duration);
@@ -29,7 +29,7 @@ public class GyroCommand extends Command {
     	threshold = 0;
     }
    
-    public GyroCommand(double duration, double turnAngle, double rangeThreshold) { //For autonomous
+    public SlowGyroCommand(double duration, double turnAngle, double rangeThreshold) { //For autonomous
     	requires(Robot.chassis);
     	isAuto = true;
     	setTimeout(duration);
