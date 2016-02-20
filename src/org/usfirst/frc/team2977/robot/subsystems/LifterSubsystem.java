@@ -1,6 +1,8 @@
 package org.usfirst.frc.team2977.robot.subsystems;
 
 import org.usfirst.frc.team2977.robot.Robot;
+import org.usfirst.frc.team2977.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.Victor;
@@ -10,8 +12,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class LifterSubsystem extends Subsystem {
-	 	Victor lifterMotor = new Victor (4);
-	    DigitalInput lift = new DigitalInput(4);
+	 	Victor lifterMotor = new Victor (RobotMap.lifter);
+	    DigitalInput lift = new DigitalInput(RobotMap.lifterSwitch);
 	    //Timer time = new Timer();
 	    double markedTime = 0;
 	   

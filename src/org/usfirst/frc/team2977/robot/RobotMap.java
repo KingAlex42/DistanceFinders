@@ -10,10 +10,11 @@ public class RobotMap {
 	public static int m1 = 2;	//front right
 	public static int m2 = 4;	//front left	
 	public static int m3 = 3;	//back right
-	public static int m4 = 1;	//back left
+	public static int m4 = 1;	//back left	
+	public static int winch = 5;
 
 	//PWM
-	public static int winch = 5;
+
 	public static int intaker = 0;
 	public static int arm = 1;
 	public static int kickerA = 2;
@@ -25,6 +26,7 @@ public class RobotMap {
 	public static int intakeLimit = 1;
 	public static int winchLimit = 0;
 	public static int limit1 = 3;
+	public static int lifterSwitch = 4;
 	
 	//Analog
 	public static int gyro = 0;

@@ -41,13 +41,14 @@ public class OI {
 	Button Y2 = new JoystickButton(stick2, 4);
 	Button B2 = new JoystickButton(stick2, 5);
 	Button A2 = new JoystickButton(stick2, 1);
+	Button X2 = new JoystickButton(stick2, 3);
 
 	public OI() {
 		B.whileHeld(new GyroCommand());
 		LB.whenPressed(new IntakeCommand());
 		RB.whileHeld(new OuttakeCommand());
 		Y.whenPressed(new GyroDataGenerator(1, 15));
-		L3.whileHeld(new MoveWincho());
+		X2.whileHeld(new MoveWincho());
 		X.whenPressed(new ResetCount());
 		Start.whenPressed(new ArmMove());
 		Start.whenReleased(new ArmStop());
