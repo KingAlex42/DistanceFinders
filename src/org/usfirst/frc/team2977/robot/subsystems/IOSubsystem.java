@@ -46,6 +46,7 @@ public class IOSubsystem extends Subsystem {
     public void Outtake() {
     	intaker.set(1 * intakeSpeed);
     }
+
     public void Intake() {
     	intaker.set(-1 * intakeSpeed);
     }
