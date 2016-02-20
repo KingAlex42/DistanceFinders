@@ -7,29 +7,24 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ArmBack extends Command {
+public class ArmZero extends Command {
 boolean isDone;
-int startingState;
-    public ArmBack() {
-    	requires(Robot.armSubsystem);
+    public ArmZero() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        requires(Robot.armSubsystem);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	startingState = Robot.armSubsystem.encoderCount();
-    //	setTimeout(2);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.armSubsystem.ArmBack();
-    }
-
+    	Robot.armSubsystem.ArmBack();    	
+    }	
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (startingState != Robot.armSubsystem.encoderCount() || Robot.armSubsystem.isZeroed()) /* || isTimedOut() */;
+        return Robot.armSubsystem.isZeroed();
     }
 
     // Called once after isFinished returns true
@@ -41,4 +36,3 @@ int startingState;
     protected void interrupted() {
     }
 }
-

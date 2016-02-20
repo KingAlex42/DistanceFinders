@@ -3,11 +3,12 @@ package org.usfirst.frc.team2977.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team2977.robot.commands.ArmBack;
+import org.usfirst.frc.team2977.robot.commands.ArmLift;
 import org.usfirst.frc.team2977.robot.commands.ArmMove;
 import org.usfirst.frc.team2977.robot.commands.ArmStop;
 import org.usfirst.frc.team2977.robot.commands.ClimbRoutine;
+import org.usfirst.frc.team2977.robot.commands.ArmZero;
 import org.usfirst.frc.team2977.robot.commands.GyroCommand;
 import org.usfirst.frc.team2977.robot.commands.IntakeCommand;
 import org.usfirst.frc.team2977.robot.commands.LiftDownCommand;
@@ -43,6 +44,10 @@ public class OI {
 	Button B2 = new JoystickButton(stick2, 5);
 	Button A2 = new JoystickButton(stick2, 1);
 	Button X2 = new JoystickButton(stick2, 3);
+	Button Butt2 = new JoystickButton(stick2, 2);
+	Button Butt6 = new JoystickButton(stick2, 6);
+	Button Butt7 = new JoystickButton(stick2, 7);
+
 
 
 	public OI() {
@@ -62,8 +67,13 @@ public class OI {
 		B2.whenPressed(new LiftDownCommand(true));
 		B2.whenReleased(new LiftStop());
 		A2.whenPressed(new ClimbRoutine());
-
-
+		Back.whenPressed(new ArmBack());
+		Back.whenReleased(new ArmStop());  
+		Butt6.whenPressed(new ArmLift());
+		Butt6.whenReleased(new ArmStop());
+		Butt7.whenPressed(new ArmZero());
+		Butt7.whenReleased(new ArmStop());
+		
 
 
 	}

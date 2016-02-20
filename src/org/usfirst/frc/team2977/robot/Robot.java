@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
 import org.usfirst.frc.team2977.robot.commands.Shoot;
 import org.usfirst.frc.team2977.robot.commands.Auto1;
 import org.usfirst.frc.team2977.robot.commands.Auto2;
