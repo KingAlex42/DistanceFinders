@@ -3,11 +3,11 @@ package org.usfirst.frc.team2977.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team2977.robot.commands.ArmBack;
 import org.usfirst.frc.team2977.robot.commands.ArmLift;
 import org.usfirst.frc.team2977.robot.commands.ArmMove;
 import org.usfirst.frc.team2977.robot.commands.ArmStop;
+import org.usfirst.frc.team2977.robot.commands.ArmZero;
 import org.usfirst.frc.team2977.robot.commands.GyroCommand;
 import org.usfirst.frc.team2977.robot.commands.IntakeCommand;
 import org.usfirst.frc.team2977.robot.commands.KickerRoutine;
@@ -36,9 +36,13 @@ public class OI {
 	Button Start = new JoystickButton(stick, 8);
 	Button L3 = new JoystickButton(stick, 9);
 	Button R3 = new JoystickButton(stick, 10);
+	
+	
 	Button Trigger2 = new JoystickButton(stick2, 1);
+	Button Butt2 = new JoystickButton(stick2, 2);
 	Button Butt3 = new JoystickButton(stick2, 3);
-	Command kickerCommand;
+	Button Butt4 = new JoystickButton(stick2, 4);
+
 
 	public OI() {
 		B.whileHeld(new GyroCommand());
@@ -54,6 +58,8 @@ public class OI {
 		Back.whenReleased(new ArmStop());  
 		Trigger2.whenPressed(new ArmLift());
 		Trigger2.whenReleased(new ArmStop());
+		Butt3.whenPressed(new ArmZero());
+		Butt3.whenReleased(new ArmStop());
 		
 
 	}
