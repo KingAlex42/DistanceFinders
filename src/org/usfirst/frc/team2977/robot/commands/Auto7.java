@@ -1,16 +1,22 @@
 package org.usfirst.frc.team2977.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
+ *	Shoots for the High Goal then turns around to reach and breach a defense
+ *	This Command is meant for when there is a Terrain Barrier in the 5th Defense Slot
  */
-public class StandardAuto extends CommandGroup {
-    
-    public  StandardAuto() {
-    	addSequential(new GyroCommand(3, 0));
-    	addSequential(new GyroTurn(-21));
-    	addSequential(new GyroCommand(2, 0));
+public class Auto7 extends CommandGroup {
+		Timer autoTimer = new Timer();
+    public  Auto7() {
+    	autoTimer.start();
+    	addSequential(new Shoot());
+    	addParallel(new RunKicker());
+    	addSequential(new GyroTurn(-15));
+    	addSequential(new GyroCommand(5,0));
+    	addSequential(new GyroTurn(42));
+    	addSequential(new GyroCommand(5,0));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

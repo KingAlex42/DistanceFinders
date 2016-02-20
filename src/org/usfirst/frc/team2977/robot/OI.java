@@ -3,7 +3,7 @@ package org.usfirst.frc.team2977.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
+import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team2977.robot.commands.ArmBack;
 import org.usfirst.frc.team2977.robot.commands.ArmMove;
 import org.usfirst.frc.team2977.robot.commands.ArmStop;
@@ -14,6 +14,7 @@ import org.usfirst.frc.team2977.robot.commands.LiftDownCommand;
 import org.usfirst.frc.team2977.robot.commands.LiftStop;
 import org.usfirst.frc.team2977.robot.commands.LifterCommand;
 import org.usfirst.frc.team2977.robot.commands.MoveWincho;
+import org.usfirst.frc.team2977.robot.commands.KickerRoutine;
 import org.usfirst.frc.team2977.robot.commands.OuttakeCommand;
 import org.usfirst.frc.team2977.robot.commands.ResetCount;
 import org.usfirst.frc.team2977.robot.commands.GyroDataGenerator;
@@ -43,6 +44,7 @@ public class OI {
 	Button A2 = new JoystickButton(stick2, 1);
 	Button X2 = new JoystickButton(stick2, 3);
 
+
 	public OI() {
 		B.whileHeld(new GyroCommand());
 		LB.whenPressed(new IntakeCommand());
@@ -50,6 +52,7 @@ public class OI {
 		Y.whenPressed(new GyroDataGenerator(1, 15));
 		X2.whileHeld(new MoveWincho());
 		X.whenPressed(new ResetCount());
+		A.whenPressed(new KickerRoutine());
 		Start.whenPressed(new ArmMove());
 		Start.whenReleased(new ArmStop());
 		Back.whenPressed(new ArmBack());
@@ -111,6 +114,11 @@ public class OI {
 			
 	}
 
+
+		
+
+
+	
 
 			
     //// CREATING BUTTONS

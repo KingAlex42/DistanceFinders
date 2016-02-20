@@ -5,14 +5,23 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc.team2977.robot.commands.StandardAuto;
+
+import org.usfirst.frc.team2977.robot.commands.Shoot;
+import org.usfirst.frc.team2977.robot.commands.Auto1;
+import org.usfirst.frc.team2977.robot.commands.Auto2;
+import org.usfirst.frc.team2977.robot.commands.Auto3;
+import org.usfirst.frc.team2977.robot.commands.Auto4;
+import org.usfirst.frc.team2977.robot.commands.Auto5;
+import org.usfirst.frc.team2977.robot.commands.Auto6;
+import org.usfirst.frc.team2977.robot.commands.Auto7;
+import org.usfirst.frc.team2977.robot.commands.Auto8;
 import org.usfirst.frc.team2977.robot.subsystems.CANChassis;
 import org.usfirst.frc.team2977.robot.subsystems.ArmSubsystem;
 import org.usfirst.frc.team2977.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team2977.robot.subsystems.IOSubsystem;
 import org.usfirst.frc.team2977.robot.subsystems.LifterSubsystem;
+import org.usfirst.frc.team2977.robot.subsystems.Kicker;
 import org.usfirst.frc.team2977.robot.subsystems.Winch;
-
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -28,6 +37,7 @@ public class Robot extends IterativeRobot {
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final CANChassis chassis = new CANChassis();
 	public static final IOSubsystem ioSubsystem = new IOSubsystem();
+	public static final Kicker kicker = new Kicker();
 	public static final Winch winchSubsystem = new Winch();
 	public static final ArmSubsystem armSubsystem = new ArmSubsystem();
 	public static OI oi;
@@ -43,7 +53,14 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new StandardAuto());
+        chooser.addDefault("Default Auto", new Auto1());
+        chooser.addObject("Position 2", new Auto2());
+        chooser.addObject("Position 3", new Auto3());
+        chooser.addObject("Position 4", new Auto4());
+        chooser.addObject("Position 5", new Auto5());
+        chooser.addObject("Position 6", new Auto6());
+        chooser.addObject("Position 7", new Auto7());
+        chooser.addObject("Position 8", new Auto8());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
     }
@@ -56,6 +73,8 @@ public class Robot extends IterativeRobot {
     public void disabledInit(){
 
     }
+    
+
 	
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();

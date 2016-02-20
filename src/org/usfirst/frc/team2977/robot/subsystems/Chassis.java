@@ -25,7 +25,7 @@ public class Chassis extends Subsystem {
 	double accelZ;
 	double adjust;  
 	double angle; // not degrees	
-	double constant = .25; //motor speed
+	double constant = .75; //motor speed  //was at .25 earlier if it matters
 	double factor = .75; 
 	
 	public Chassis() {

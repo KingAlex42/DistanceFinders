@@ -16,7 +16,7 @@ public class ArmSubsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	Jaguar motor = new Jaguar(RobotMap.arm);
-	DigitalInput arm1 = new DigitalInput(RobotMap.limit1);
+	DigitalInput arm1 = new DigitalInput(RobotMap.armSwitch);
 	boolean limit;
 	
 	
