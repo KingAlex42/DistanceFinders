@@ -4,17 +4,19 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *	Goes through the low bar and shoots for the low goal.  Possibility: Shoot at high goal?
+ *	Moves through the second defense to the right of the low bar and shoots in the low goal
  */
-public class Auto1 extends CommandGroup {
-	Timer autoTimer = new Timer();
-    
-    public  Auto1() {
+public class Auto3RightLow extends CommandGroup {
+		Timer autoTimer = new Timer();
+    public  Auto3RightLow() {
     	autoTimer.start();
-    	addSequential(new SlowGyroCommand(4, 0));
-    	addSequential(new GyroCommand(20, 0, 90));
+    	addSequential(new GyroCommand(5, 0));
+    	addSequential(new GyroTurn(21));
+    	addSequential(new GyroCommand(20, 0, 110));
+    	addSequential(new GyroTurn(-21));
+    	addSequential(new GyroCommand(20, 0, 63));
     	addSequential(new GyroTurn(-14));
-    	addSequential(new SlowGyroCommand(4, 0));
+    	addSequential(new SlowGyroCommand(1, 0));
     	addSequential(new OuttakeCommand(2));
         // Add Commands here:
         // e.g. addSequential(new Command1());

@@ -1,17 +1,18 @@
 
 package org.usfirst.frc.team2977.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team2977.robot.commands.Shoot;
-import org.usfirst.frc.team2977.robot.commands.Auto1;
-import org.usfirst.frc.team2977.robot.commands.Auto2;
-import org.usfirst.frc.team2977.robot.commands.Auto3;
-import org.usfirst.frc.team2977.robot.commands.Auto4;
-import org.usfirst.frc.team2977.robot.commands.Auto5;
-import org.usfirst.frc.team2977.robot.commands.Auto6;
+import org.usfirst.frc.team2977.robot.commands.Auto1RightLow;
+import org.usfirst.frc.team2977.robot.commands.Auto2RightLow;
+import org.usfirst.frc.team2977.robot.commands.Auto3RightLow;
+import org.usfirst.frc.team2977.robot.commands.Auto4LeftLow;
+import org.usfirst.frc.team2977.robot.commands.Auto5LeftLow;
+import org.usfirst.frc.team2977.robot.commands.Auto1RightHigh;
 import org.usfirst.frc.team2977.robot.commands.Auto7;
 import org.usfirst.frc.team2977.robot.commands.Auto8;
 import org.usfirst.frc.team2977.robot.subsystems.CANChassis;
@@ -52,16 +53,17 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", new Auto1());
-        chooser.addObject("Position 2", new Auto2());
-        chooser.addObject("Position 3", new Auto3());
-        chooser.addObject("Position 4", new Auto4());
-        chooser.addObject("Position 5", new Auto5());
-        chooser.addObject("Position 6", new Auto6());
+        chooser.addDefault("Default Auto", new Auto1RightLow());
+        chooser.addObject("Position 2", new Auto2RightLow());
+        chooser.addObject("Position 3", new Auto3RightLow());
+        chooser.addObject("Position 4", new Auto4LeftLow());
+        chooser.addObject("Position 5", new Auto5LeftLow());
+        chooser.addObject("Position 6", new Auto1RightHigh());
         chooser.addObject("Position 7", new Auto7());
         chooser.addObject("Position 8", new Auto8());
-//        chooser.addObject("My Auto", new MyAutoCommand());
+//      chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
+        CameraServer.getInstance().startAutomaticCapture("2977Camera");
     }
 	
 	/**

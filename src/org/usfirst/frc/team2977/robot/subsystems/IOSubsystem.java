@@ -21,17 +21,17 @@ public class IOSubsystem extends Subsystem {
     
     public void INIT() {
     	if (intakeLimit.get()) {
-    		SmartDashboard.putBoolean("Inny Takey", true);
+    		SmartDashboard.putBoolean("Intake", true);
     		intaker.set(0);
     		
     	}
     	else if (!intakeLimit.get()) {
-    		SmartDashboard.putBoolean("Inny Takey", false);
+    		SmartDashboard.putBoolean("Intake", false);
     		}
     }
     
     public boolean limitSwitch() {
-    	intaked = intakeLimit.get();
+    	intaked = !intakeLimit.get();
     	SmartDashboard.putBoolean("IntakeSwitch", intaked);
     	return intaked;
     }

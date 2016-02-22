@@ -4,17 +4,18 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *	Moves through the defense to the right of the low bar and shoots in the low goal
+ * Should be Auto 1 but shoot for high goal
  */
-public class Auto2 extends CommandGroup {
+public class Auto1RightHigh extends CommandGroup {
 		Timer autoTimer = new Timer();
-    public  Auto2() {
-    	autoTimer.start();
-    	addSequential(new SlowGyroCommand(5, 0));
-    	addSequential(new GyroCommand(20, 0, 63));
+    public  Auto1RightHigh() {
+    	addSequential(new MedGyroCommand(6, 0));
+    	addParallel(new RunKicker());
+    	addSequential(new GyroCommand(20, 0, 90));
     	addSequential(new GyroTurn(-14));
-    	addSequential(new SlowGyroCommand(1, 0));
-    	addSequential(new OuttakeCommand(2));
+    	addSequential(new MedGyroCommand(3, 0));
+    	addSequential(new IntakeCommand());
+    	addSequential(new Shoot());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
