@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2977.robot.commands;
 
+import org.usfirst.frc.team2977.robot.OI;
 import org.usfirst.frc.team2977.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -40,7 +41,7 @@ public class MoveWincho extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.winchSubsystem.atTop();
+        return Robot.winchSubsystem.atTop() || !Robot.oi.winchButton();
     }
 
     // Called once after isFinished returns true

@@ -4,12 +4,11 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *	Shoots for the High Goal then turns around to reach and breach a defense
- *	This Command is meant for when there is a Terrain Barrier in the 5th Defense Slot
+ *	Just Crosses a Defense
  */
-public class Auto7 extends CommandGroup {
+public class AutoCross extends CommandGroup {
 		Timer autoTimer = new Timer();
-    public  Auto7() {
+    public  AutoCross() {
     	autoTimer.start();
     	addSequential(new Shoot());
     	addParallel(new RunKicker());

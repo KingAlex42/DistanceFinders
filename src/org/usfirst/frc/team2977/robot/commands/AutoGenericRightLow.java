@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *	Moves through the second defense to the right of the low bar and shoots in the low goal
  */
-public class Auto3RightLow extends CommandGroup {
+public class AutoGenericRightLow extends CommandGroup {
 		Timer autoTimer = new Timer();
-    public  Auto3RightLow() {
+    public  AutoGenericRightLow() {
     	autoTimer.start();
     	addSequential(new GyroCommand(5, 0));
     	addSequential(new GyroTurn(21));

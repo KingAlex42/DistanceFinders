@@ -48,6 +48,9 @@ public class OI {
 	Button Butt6 = new JoystickButton(stick2, 6);
 	Button Butt7 = new JoystickButton(stick2, 7);
 
+	public boolean winchButton() {
+		return X2.get();
+	}
 
 
 	public OI() {
