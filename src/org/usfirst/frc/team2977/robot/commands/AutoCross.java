@@ -10,11 +10,6 @@ public class AutoCross extends CommandGroup {
 		Timer autoTimer = new Timer();
     public  AutoCross() {
     	autoTimer.start();
-    	addSequential(new Shoot());
-    	addParallel(new RunKicker());
-    	addSequential(new GyroTurn(-15));
-    	addSequential(new GyroCommand(5,0));
-    	addSequential(new GyroTurn(42));
     	addSequential(new GyroCommand(5,0));
         // Add Commands here:
         // e.g. addSequential(new Command1());
