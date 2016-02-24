@@ -5,15 +5,16 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *	Moves through the fourth defense to the right of the low bar and shoots in the low goal
+ * ~~12 inch from secret passage
  */
 public class Auto5LeftLow extends CommandGroup {
 		Timer autoTimer = new Timer();
     public  Auto5LeftLow() {
     	autoTimer.start();
     	addSequential(new GyroCommand(5, 0));
-    	addSequential(new GyroCommand(20, 0, 55));
+    	addSequential(new MedGyroCommand(20, 0, 31));
     	addSequential(new GyroTurn(14));
-    	addSequential(new MedGyroCommand(2, 0));
+    	addSequential(new MedGyroCommand(1.5, 0));
     	addSequential(new OuttakeCommand(2));
         // Add Commands here:
         // e.g. addSequential(new Command1());

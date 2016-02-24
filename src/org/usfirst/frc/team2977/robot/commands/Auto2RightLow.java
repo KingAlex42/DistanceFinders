@@ -11,9 +11,9 @@ public class Auto2RightLow extends CommandGroup {
     public  Auto2RightLow() {
     	autoTimer.start();
     	addSequential(new GyroCommand(4, 0));
-    	addSequential(new GyroCommand(20, 0, 63));
+    	addSequential(new MedGyroCommand(20, 0, 50));
     	addSequential(new GyroTurn(-14));
-    	addSequential(new MedGyroCommand(1, 0));
+    	addSequential(new MedGyroCommand(1.5, 0));
     	addSequential(new OuttakeCommand(2));
         // Add Commands here:
         // e.g. addSequential(new Command1());

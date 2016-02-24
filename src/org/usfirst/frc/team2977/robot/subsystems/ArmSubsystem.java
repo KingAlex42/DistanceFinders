@@ -17,6 +17,10 @@ public class ArmSubsystem extends Subsystem {
 	DigitalInput arm1 = new DigitalInput(RobotMap.armSwitch);
 	Encoder armEncoder = new Encoder(RobotMap.armA, RobotMap.armB);
 	
+	public void zeroEncoder() {
+		armEncoder.reset();
+	}
+	
 	//----------Getting Encoder Stuff----------------------//
 	public int encoderCount() {
 		int encoderCount = armEncoder.get();
@@ -76,25 +80,25 @@ public class ArmSubsystem extends Subsystem {
 	
 	//---------LimitSwitch---------------------------------//
 	public boolean limitSwitch() {
-		boolean limit = arm1.get();
+		boolean limit = !arm1.get();
 		SmartDashboard.putBoolean("ArmSwitch", limit);
 		return limit;
 	}
 	
 	public void lift() {
-		motor.set(RobotMap.armMaxPower);
+		motor.set(-RobotMap.armMaxPower);
 	}
 	
 
 	//----------Methods to Move Arm------------------------//
 
 	public void Motoring() {
-		motor.set(RobotMap.armPower); //sets motor to forward
+		motor.set(-RobotMap.armPower); //sets motor to forward
 		printEncoder();
 	}
 	
 	public void ArmBack() {
-		motor.set(-RobotMap.armPower); //sets motor to backward
+		motor.set(RobotMap.armPower); //sets motor to backward
 		printEncoder();
 	}
 	

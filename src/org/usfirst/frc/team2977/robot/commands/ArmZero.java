@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class ArmZero extends Command {
-boolean isDone;
+boolean isDone = false;
     public ArmZero() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.armSubsystem);
@@ -20,15 +20,16 @@ boolean isDone;
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.armSubsystem.ArmBack();    	
+    	Robot.armSubsystem.zeroEncoder();    	
     }	
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.armSubsystem.isZeroed();
+        return isDone;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	isDone = false;
     }
 
     // Called when another command which requires one or more of the same

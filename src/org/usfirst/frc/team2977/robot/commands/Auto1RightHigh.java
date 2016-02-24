@@ -11,10 +11,11 @@ public class Auto1RightHigh extends CommandGroup {
     public  Auto1RightHigh() {
     	addSequential(new MedGyroCommand(6, 0));
     	addParallel(new RunKicker());
-    	addSequential(new GyroCommand(20, 0, 90));
+    	addSequential(new MedGyroCommand(20, 0, 77));  //Worked at 90 inches before
     	addSequential(new GyroTurn(-14));
-    	addSequential(new MedGyroCommand(3, 0));
+    	addSequential(new MedGyroCommand(4, 0, 22));
     	addSequential(new IntakeCommand());
+    	addSequential(new TimedWait(.25));
     	addSequential(new Shoot());
         // Add Commands here:
         // e.g. addSequential(new Command1());

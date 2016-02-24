@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *	Goes through the low bar and shoots for the low goal.  Possibility: Shoot at high goal?
+ *	Goes through the low bar and shoots for the low goal.  Sensor ~ 3"2' away from high goal
  */
 public class Auto1RightLow extends CommandGroup {
 	Timer autoTimer = new Timer();
@@ -12,9 +12,9 @@ public class Auto1RightLow extends CommandGroup {
     public  Auto1RightLow() {
     	autoTimer.start();
     	addSequential(new MedGyroCommand(6, 0));
-    	addSequential(new GyroCommand(20, 0, 90));
+    	addSequential(new MedGyroCommand(20, 0, 77));  //Worked at 90 inches before
     	addSequential(new GyroTurn(-14));
-    	addSequential(new MedGyroCommand(4, 0));
+    	addSequential(new MedGyroCommand(4, 0, 12));
     	addSequential(new OuttakeCommand(2));
         // Add Commands here:
         // e.g. addSequential(new Command1());

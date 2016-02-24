@@ -15,6 +15,7 @@ public class Winch extends Subsystem {
     int click = 1;
     DigitalInput winchLimit = new DigitalInput(RobotMap.winchLimit);
     CANTalon winch = new CANTalon(RobotMap.winch);
+    int maxCount = 6;
     
     public Winch() {
     	winch.enableControl();
@@ -24,7 +25,7 @@ public class Winch extends Subsystem {
     
 	public boolean atTop() {
 	        SmartDashboard.putNumber("Number of Cripsy Clicky Baits", count);
-	   if (count >= 5) {
+	   if (count >= maxCount) {
 		   return true;
 		
 	   }

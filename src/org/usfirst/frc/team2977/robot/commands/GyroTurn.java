@@ -13,7 +13,7 @@ public class GyroTurn extends Command {
 	double turnAngle;  //How much we want it to turn
 	double constant = .25;  //default motor speed
 	double speed;
-	double thresholdBounds = 1;  //Actual turn must be within the turn angle +- this
+	double thresholdBounds = .5;  //Actual turn must be within the turn angle +- this
 	
 	int correctionCycle = 1;
 	int lastPosition;
@@ -38,9 +38,9 @@ public class GyroTurn extends Command {
     // Called repeatedly when this Command is scheduled to run
      protected void execute() {
     	 speed = constant / correctionCycle;
-    	beforeThreshold = (Math.abs(currentAngle - startingAngle) <= Math.abs(turnAngle) - 1);
+    	beforeThreshold = (Math.abs(currentAngle - startingAngle) <= Math.abs(turnAngle) - thresholdBounds);
     	//Check to see if the robot has turned the desired amount
-    	pastThreshold = (Math.abs(currentAngle - startingAngle) >= Math.abs(turnAngle) + 1);
+    	pastThreshold = (Math.abs(currentAngle - startingAngle) >= Math.abs(turnAngle) + thresholdBounds);
     	//Check to see if the robot has passed the desired amount
     	currentAngle = Robot.chassis.GyroAngle();
     	if(beforeThreshold) {

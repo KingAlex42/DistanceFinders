@@ -55,8 +55,8 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         chooser = new SendableChooser();
+        chooser.addDefault("Auto1RightLow", new Auto1RightLow());  /*-Default-*/
         chooser.addObject("Auto1RightHigh", new Auto1RightHigh());
-        chooser.addDefault("Auto1RightLow", new Auto1RightLow());
         chooser.addObject("Auto2RightLow", new Auto2RightLow());
         chooser.addObject("Auto3MidHigh", new Auto3MidHigh());
         chooser.addObject("Auto4MidHigh", new Auto4MidHigh());
@@ -67,7 +67,7 @@ public class Robot extends IterativeRobot {
         chooser.addObject("AutoGenericLeftLow", new AutoGenericLeftLow());
 //      chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
-        CameraServer.getInstance().startAutomaticCapture("2977Camera");
+        CameraServer.getInstance().startAutomaticCapture("cam2");
     }
 	
 	/**

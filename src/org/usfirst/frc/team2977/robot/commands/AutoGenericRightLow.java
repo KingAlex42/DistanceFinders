@@ -10,13 +10,16 @@ public class AutoGenericRightLow extends CommandGroup {
 		Timer autoTimer = new Timer();
     public  AutoGenericRightLow() {
     	autoTimer.start();
-    	addSequential(new GyroCommand(5, 0));
-    	addSequential(new GyroTurn(21));
-    	addSequential(new GyroCommand(20, 0, 110));
-    	addSequential(new GyroTurn(-21));
-    	addSequential(new GyroCommand(20, 0, 63));
-    	addSequential(new GyroTurn(-14));
-    	addSequential(new SlowGyroCommand(1, 0));
+    	addSequential(new GyroCommand(4, 0));
+    	addSequential(new GyroTurn(-20));
+    	addSequential(new TimedWait(.5));
+    	addSequential(new MedGyroCommand(20, 0, 55));
+    	addSequential(new GyroTurn(20));
+    	addSequential(new TimedWait(.5));
+    	addSequential(new MedGyroCommand(20, 0, 22));
+    	addSequential(new GyroTurn(14));
+    	addSequential(new TimedWait(.5));
+    	addSequential(new SlowGyroCommand(1.5, 0));
     	addSequential(new OuttakeCommand(2));
         // Add Commands here:
         // e.g. addSequential(new Command1());

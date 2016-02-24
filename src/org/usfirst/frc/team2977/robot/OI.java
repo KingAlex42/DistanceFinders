@@ -18,6 +18,7 @@ import org.usfirst.frc.team2977.robot.commands.MoveWincho;
 import org.usfirst.frc.team2977.robot.commands.KickerRoutine;
 import org.usfirst.frc.team2977.robot.commands.OuttakeCommand;
 import org.usfirst.frc.team2977.robot.commands.ResetCount;
+import org.usfirst.frc.team2977.robot.commands.RunKicker;
 import org.usfirst.frc.team2977.robot.commands.GyroDataGenerator;
 
 
@@ -47,6 +48,9 @@ public class OI {
 	Button Butt2 = new JoystickButton(stick2, 2);
 	Button Butt6 = new JoystickButton(stick2, 6);
 	Button Butt7 = new JoystickButton(stick2, 7);
+	Button Butt8 = new JoystickButton(stick2, 8);
+	Button Butt9 = new JoystickButton(stick2, 9);
+	Button Butt10 = new JoystickButton(stick2, 10);
 
 	public boolean winchButton() {
 		return X2.get();
@@ -76,6 +80,7 @@ public class OI {
 		Butt6.whenReleased(new ArmStop());
 		Butt7.whenPressed(new ArmZero());
 		Butt7.whenReleased(new ArmStop());
+	
 		
 
 

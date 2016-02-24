@@ -45,6 +45,7 @@ public class RobotMap {
 	public static double leftRangeC = 109;
 	public static double armPower = .33;
 	public static double armMaxPower = 1;
+	public static double armPositionThreshold = 40;
 
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
