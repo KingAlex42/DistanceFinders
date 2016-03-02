@@ -131,9 +131,6 @@ public class CANChassis extends Subsystem {
     		SmartDashboard.putNumber("Angle", GyroAngle());
     		SmartDashboard.putNumber("LeftRangeFinder", leftRanger());
     		SmartDashboard.putNumber("LeftInches", leftDistance());
-    		getZ();
-    		getX();
-    		getY();
         }
         
     //----------------------------------------------------------------------//

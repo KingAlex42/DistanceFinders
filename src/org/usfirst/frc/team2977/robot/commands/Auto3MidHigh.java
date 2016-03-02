@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class Auto3MidHigh extends CommandGroup {
 	//	Timer autoTimer = new Timer();
-    public  Auto3MidHigh() {
+    public Auto3MidHigh() {
     	addSequential(new MedGyroCommand(5,0));
     	addParallel(new RunKicker());
     	addSequential(new GyroTurn(21));

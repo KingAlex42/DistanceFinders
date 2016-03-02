@@ -16,8 +16,10 @@ import org.usfirst.frc.team2977.robot.commands.LiftStop;
 import org.usfirst.frc.team2977.robot.commands.LifterCommand;
 import org.usfirst.frc.team2977.robot.commands.MoveWincho;
 import org.usfirst.frc.team2977.robot.commands.KickerRoutine;
+import org.usfirst.frc.team2977.robot.commands.KickerStop;
 import org.usfirst.frc.team2977.robot.commands.OuttakeCommand;
 import org.usfirst.frc.team2977.robot.commands.ResetCount;
+import org.usfirst.frc.team2977.robot.commands.ResetGyro;
 import org.usfirst.frc.team2977.robot.commands.RunKicker;
 import org.usfirst.frc.team2977.robot.commands.GyroDataGenerator;
 
@@ -46,9 +48,9 @@ public class OI {
 	Button A2 = new JoystickButton(stick2, 1);
 	Button X2 = new JoystickButton(stick2, 3);
 	Button Butt2 = new JoystickButton(stick2, 2);
-	Button Butt6 = new JoystickButton(stick2, 6);
-	Button Butt7 = new JoystickButton(stick2, 7);
-	Button Butt8 = new JoystickButton(stick2, 8);
+	Button RB2 = new JoystickButton(stick2, 6);
+	Button LB2 = new JoystickButton(stick2, 5);
+	Button Start2 = new JoystickButton(stick2, 8);
 	Button Butt9 = new JoystickButton(stick2, 9);
 	Button Butt10 = new JoystickButton(stick2, 10);
 
@@ -58,28 +60,40 @@ public class OI {
 
 
 	public OI() {
+		//Driving Controller
+	
 		B.whileHeld(new GyroCommand());
 		LB.whenPressed(new IntakeCommand());
 		RB.whileHeld(new OuttakeCommand());
-		Y.whenPressed(new GyroDataGenerator(1, 15));
-		X2.whileHeld(new MoveWincho());
-		X.whenPressed(new ResetCount());
 		A.whenPressed(new KickerRoutine());	//TODO add a driver override to stop shooter
-		Start.whenPressed(new ArmMove());
-		Start.whenReleased(new ArmStop());
-		Back.whenPressed(new ArmBack());
-		Back.whenReleased(new ArmStop());
-		Y2.whenPressed(new LifterCommand());
-		Y2.whenReleased(new LiftStop());
-		B2.whenPressed(new LiftDownCommand(true));
-		B2.whenReleased(new LiftStop());
-		A2.whenPressed(new ClimbRoutine());
-		Back.whenPressed(new ArmBack());
-		Back.whenReleased(new ArmStop());  
-		Butt6.whenPressed(new ArmLift());
-		Butt6.whenReleased(new ArmStop());
-		Butt7.whenPressed(new ArmZero());
-		Butt7.whenReleased(new ArmStop());
+		//Y.whenPressed(new GyroDataGenerator(1, 15));
+		//X.whenPressed(new ResetCount());
+		
+		//Operator Controller
+		
+		LB2.whenPressed(new IntakeCommand());
+		RB2.whileHeld(new OuttakeCommand());
+		B2.whenPressed(new ResetGyro());
+		X2.whenPressed(new KickerStop());
+		Start2.whenPressed(new RunKicker());
+		//X2.whileHeld(new MoveWincho());
+		
+		
+		//Start.whenPressed(new ArmMove());
+		//Start.whenReleased(new ArmStop());
+		//Back.whenPressed(new ArmBack());
+		//Back.whenReleased(new ArmStop());
+		//Y2.whenPressed(new LifterCommand());
+		//Y2.whenReleased(new LiftStop());
+		//B2.whenPressed(new LiftDownCommand(true));
+		//B2.whenReleased(new LiftStop());
+		//A2.whenPressed(new ClimbRoutine());
+		//Back.whenPressed(new ArmBack());
+		//Back.whenReleased(new ArmStop());  
+		//Butt6.whenPressed(new ArmLift());
+		//Butt6.whenReleased(new ArmStop());
+		//Butt7.whenPressed(new ArmZero());
+		//Butt7.whenReleased(new ArmStop());
 	
 		
 
