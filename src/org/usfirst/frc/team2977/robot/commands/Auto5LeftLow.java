@@ -12,9 +12,9 @@ public class Auto5LeftLow extends CommandGroup {
     public  Auto5LeftLow() {
     	autoTimer.start();
     	addSequential(new GyroCommand(5, 0));
-    	addSequential(new MedGyroCommand(20, 0, 31));
+    	addSequential(new MedGyroCommand(20, 0, 26));
     	addSequential(new GyroTurn(14));
-    	addSequential(new MedGyroCommand(1.5, 0));
+    	addSequential(new MedGyroCommand(1.25, 0));
     	addSequential(new OuttakeCommand(2));
         // Add Commands here:
         // e.g. addSequential(new Command1());

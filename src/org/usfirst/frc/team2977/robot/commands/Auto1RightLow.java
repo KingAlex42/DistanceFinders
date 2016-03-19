@@ -12,10 +12,10 @@ public class Auto1RightLow extends CommandGroup {
     public  Auto1RightLow() {
     	autoTimer.start();
     	addSequential(new MedGyroCommand(6, 0));
-    	addSequential(new MedGyroCommand(20, 0, 77));  //Worked at 90 inches before
+    	addSequential(new MedGyroCommand(20, 0, 88));  //Worked at 90 inches before  77 on carpet
     	addSequential(new GyroTurn(-14));
     	addSequential(new MedGyroCommand(4, 0, 12));
-    	addSequential(new OuttakeCommand(2));
+    	addSequential(new OuttakeCommand(2)); 
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

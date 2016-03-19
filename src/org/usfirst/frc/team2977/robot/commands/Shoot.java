@@ -39,7 +39,7 @@ public class Shoot extends Command {
     protected void execute() {
     	if(!hasRun) {
         voltage = DriverStation.getInstance().getBatteryVoltage();
-       	currentSpeed = RobotMap.kickerMaxSpeed + ((12.7 - voltage)/10);
+       	currentSpeed = RobotMap.kickerMaxSpeed + ((14.5 - voltage)/10);
     	SmartDashboard.putNumber("BatteryVoltage", voltage);
     	SmartDashboard.putNumber("CurrentSpeed", currentSpeed);
        	Robot.kicker.forward(currentSpeed); 

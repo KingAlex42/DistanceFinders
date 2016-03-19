@@ -15,7 +15,7 @@ public class Auto3MidHigh extends CommandGroup {
     	addSequential(new GyroTurn(21));
     	addSequential(new GyroCommand(20, 0, 60));
     	addSequential(new GyroTurn(-21));
-    	addSequential(new MedGyroCommand(20, 0, 15));
+    	addSequential(new MedGyroCommand(20, 0, 16));
     	addSequential(new Shoot());
     	addSequential(new RunKicker());
         // Add Commands here:

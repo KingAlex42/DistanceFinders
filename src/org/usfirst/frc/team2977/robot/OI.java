@@ -3,6 +3,8 @@ package org.usfirst.frc.team2977.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+import org.usfirst.frc.team2977.robot.commands.AdamDrive;
 import org.usfirst.frc.team2977.robot.commands.ArmBack;
 import org.usfirst.frc.team2977.robot.commands.ArmLift;
 import org.usfirst.frc.team2977.robot.commands.ArmMove;
@@ -65,7 +67,8 @@ public class OI {
 		B.whileHeld(new GyroCommand());
 		LB.whenPressed(new IntakeCommand());
 		RB.whileHeld(new OuttakeCommand());
-		A.whenPressed(new KickerRoutine());	//TODO add a driver override to stop shooter
+		A.whenPressed(new KickerRoutine());	
+		Y.whileHeld(new AdamDrive());
 		//Y.whenPressed(new GyroDataGenerator(1, 15));
 		//X.whenPressed(new ResetCount());
 		
@@ -135,6 +138,8 @@ public class OI {
 			return 0;
 		}
 
+		
+		
 	}
 		public double getRightX() { 
 			if (stick.getRawAxis(4) < -.15 | stick.getRawAxis(4) > .15) {
@@ -145,7 +150,18 @@ public class OI {
 			else {
 				return 0;
 			}
+		}
 			
+			public double getRightX2() { 
+				if (stick2.getRawAxis(4) < -.15 | stick2.getRawAxis(4) > .15) {
+
+					return -stick2.getRawAxis(4);
+							
+				}
+				else {
+					return 0;
+				}
+				
 	}
 
 
